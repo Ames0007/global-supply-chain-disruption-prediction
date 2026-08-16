@@ -1,0 +1,1041 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Sans titre</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+/* For default-background callouts, render the border outline. */
+.callout.block-color-default_background {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+/*
+ * Toggles and callouts hold arbitrary content, so they can easily be taller
+ * than a page. They must stay breakable: avoiding breaks inside them makes
+ * Chromium push the whole block onto the next page, which leaves the previous
+ * page mostly empty before every long toggle.
+ */
+details,
+aside {
+	margin: 1.25em 0;
+}
+
+/* Keep a toggle's title on the same page as the start of its content. */
+summary {
+	page-break-after: avoid;
+	break-after: avoid;
+}
+
+/*
+ * Toggle headings render as <h1/h2/h3 style="display:inline-block"> inside
+ * <summary>. Without this reset, the heading's margin-top pushes it below the
+ * ::marker (▼), so the triangle and the title appear on separate lines.
+ */
+summary h1,
+summary h2,
+summary h3,
+summary h4 {
+	margin-top: 0;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding-inline: 0.125rem;
+	padding-block: 0.375rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+/*
+ * Render emoji icons using a ::before pseudo-element to keep the glyph
+ * out of the DOM textContent traversal. This avoids double-rendering icons
+ * in callouts and page titles.
+ * NOTE(slim/html-export-pseudo-icons): I can't tagref this because it will
+ * flag as a duplicate tag after codegen.
+ */
+.icon[data-emoji]::before {
+	content: attr(data-emoji);
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	margin-right: 0.4em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.tab {
+	margin: 1.25em 0;
+	padding-inline: 1rem;
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style><style>@import url('https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex-swap.min.css')</style></head><body><article id="3bbda875-7dac-8028-8dce-ef5fe9a0d4e6" class="page sans"><header><h1 class="page-title" dir="auto"></h1><p class="page-description" dir="auto"></p></header><div class="page-body"><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="3beda875-7dac-80e4-9cca-e177c4694b4f" class="code code-wrap"><code style="white-space:pre-wrap;word-break:break-all">importpandasaspd
+importnumpyasnp
+importseabornassns
+importmatplotlib.pyplotasplt
+importscipy.statsasstats</code></pre><pre id="3beda875-7dac-80fa-a0fb-c6d5a48c2fc5" class="code code-wrap"><code style="white-space:pre-wrap;word-break:break-all">df = pd.read_csv(&quot;/kaggle/input/global-supply-chain-risk-and-logistics-2024-2026/global_supply_chain_risk_2026.csv&quot;)</code></pre><pre id="3beda875-7dac-80e3-876d-df89bad77548" class="code code-wrap"><code style="white-space:pre-wrap;word-break:break-all">df.head()</code></pre><table id="3beda875-7dac-8058-9a30-e7d91a0fa63c" class="simple-table" dir="ltr"><thead class="simple-table-header"><tr id="3beda875-7dac-807e-b5f2-faaae6c19cc2" dir="ltr"><th id="FstD" class="simple-table-header-color simple-table-header"></th><th id="tS&lt;O" class="simple-table-header-color simple-table-header">Shipment_ID</th><th id="^|Ws" class="simple-table-header-color simple-table-header">Date</th><th id="Jri?" class="simple-table-header-color simple-table-header">Origin_Port</th><th id="c]Rc" class="simple-table-header-color simple-table-header">Destination_Port</th><th id="on|K" class="simple-table-header-color simple-table-header">Transport_Mode</th><th id="U?MR" class="simple-table-header-color simple-table-header">Product_Category</th><th id="XP|J" class="simple-table-header-color simple-table-header">Distance_km</th><th id="QGlf" class="simple-table-header-color simple-table-header">Weight_MT</th><th id="HMjq" class="simple-table-header-color simple-table-header">Fuel_Price_Index</th><th id="|zx|" class="simple-table-header-color simple-table-header">Geopolitical_Risk_Score</th><th id="^fb&gt;" class="simple-table-header-color simple-table-header">Weather_Condition</th><th id="GXqF" class="simple-table-header-color simple-table-header">Carrier_Reliability_Score</th><th id="plKm" class="simple-table-header-color simple-table-header">Lead_Time_Days</th><th id="qNZ_" class="simple-table-header-color simple-table-header">Disruption_Occurred</th></tr></thead><tbody><tr id="3beda875-7dac-80d6-8063-e77b37b798fe" dir="ltr"><th id="FstD" class="simple-table-header-color simple-table-header">0</th><td id="tS&lt;O" class="">SC-10000</td><td id="^|Ws" class="">2025-10-16</td><td id="Jri?" class="">Singapore</td><td id="c]Rc" class="">Los Angeles</td><td id="on|K" class="">Rail</td><td id="U?MR" class="">Textiles</td><td id="XP|J" class="">5930.83</td><td id="QGlf" class="">197.42</td><td id="HMjq" class="">2.43</td><td id="|zx|" class="">5.0</td><td id="^fb&gt;" class="">Hurricane</td><td id="GXqF" class="">0.865</td><td id="plKm" class="">41.39</td><td id="qNZ_" class="">1</td></tr><tr id="3beda875-7dac-8027-915c-e646129a6ee4" dir="ltr"><th id="FstD" class="simple-table-header-color simple-table-header">1</th><td id="tS&lt;O" class="">SC-10001</td><td id="^|Ws" class="">2024-04-24</td><td id="Jri?" class="">Singapore</td><td id="c]Rc" class="">Shanghai</td><td id="on|K" class="">Rail</td><td id="U?MR" class="">Automotive</td><td id="XP|J" class="">14285.36</td><td id="QGlf" class="">237.24</td><td id="HMjq" class="">2.30</td><td id="|zx|" class="">7.5</td><td id="^fb&gt;" class="">Storm</td><td id="GXqF" class="">0.592</td><td id="plKm" class="">40.92</td><td id="qNZ_" class="">1</td></tr><tr id="3beda875-7dac-8036-b5a8-d9dcc2b89ae3" dir="ltr"><th id="FstD" class="simple-table-header-color simple-table-header">2</th><td id="tS&lt;O" class="">SC-10002</td><td id="^|Ws" class="">2024-01-26</td><td id="Jri?" class="">Rotterdam</td><td id="c]Rc" class="">Los Angeles</td><td id="on|K" class="">Rail</td><td id="U?MR" class="">Perishables</td><td id="XP|J" class="">11113.91</td><td id="QGlf" class="">427.42</td><td id="HMjq" class="">1.78</td><td id="|zx|" class="">5.6</td><td id="^fb&gt;" class="">Rain</td><td id="GXqF" class="">0.673</td><td id="plKm" class="">11.54</td><td id="qNZ_" class="">0</td></tr><tr id="3beda875-7dac-801b-adbc-fbedcf3e707d" dir="ltr"><th id="FstD" class="simple-table-header-color simple-table-header">3</th><td id="tS&lt;O" class="">SC-10003</td><td id="^|Ws" class="">2024-10-08</td><td id="Jri?" class="">Busan</td><td id="c]Rc" class="">Hamburg</td><td id="on|K" class="">Rail</td><td id="U?MR" class="">Electronics</td><td id="XP|J" class="">9180.55</td><td id="QGlf" class="">170.66</td><td id="HMjq" class="">3.20</td><td id="|zx|" class="">0.8</td><td id="^fb&gt;" class="">Hurricane</td><td id="GXqF" class="">0.832</td><td id="plKm" class="">53.13</td><td id="qNZ_" class="">1</td></tr><tr id="3beda875-7dac-80e4-9e9f-db9287d34db3" dir="ltr"><th id="FstD" class="simple-table-header-color simple-table-header">4</th><td id="tS&lt;O" class="">SC-10004</td><td id="^|Ws" class="">2024-09-07</td><td id="Jri?" class="">Busan</td><td id="c]Rc" class="">Singapore</td><td id="on|K" class="">Air</td><td id="U?MR" class="">Perishables</td><td id="XP|J" class="">2762.27</td><td id="QGlf" class="">434.96</td><td id="HMjq" class="">2.77</td><td id="|zx|" class="">1.9</td><td id="^fb&gt;" class="">Fog</td><td id="GXqF" class="">0.741</td><td id="plKm" class="">0.50</td><td id="qNZ_" class="">1</td></tr></tbody></table><h1 id="3beda875-7dac-80c6-aa89-f8495fa29e0d" class="" dir="auto"><strong>EDA Visualization</strong></h1><pre id="3beda875-7dac-80e7-b400-e7410960a703" class="code code-wrap"><code style="white-space:pre-wrap;word-break:break-all">sns.set_style(&#x27;whitegrid&#x27;)
+df[&#x27;Disruption_Occurred&#x27;].value_counts()</code></pre><pre id="3beda875-7dac-80f1-95ce-ca4d439c2e9c" class="code code-wrap"><code style="white-space:pre-wrap;word-break:break-all">Disruption_Occurred
+1    3063
+0    1937
+Name: count, dtype: int64</code></pre><pre id="3beda875-7dac-80b2-a084-e62096e3c47b" class="code code-wrap"><code style="white-space:pre-wrap;word-break:break-all">sns.countplot(df[&#x27;Weather_Condition&#x27;])</code></pre><pre id="3beda875-7dac-80be-9fc0-cc8262a38fe1" class="code code-wrap"><code style="white-space:pre-wrap;word-break:break-all">&lt;Axes: xlabel=&#x27;count&#x27;, ylabel=&#x27;Weather_Condition&#x27;&gt;</code></pre><figure id="3beda875-7dac-80fa-8ade-f83bdf2aa3fc" class="image" data-notion-image="https://www.kaggleusercontent.com/kf/300050844/eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2In0..6lO-YSzbPIUOMF-POlWz8Q._QOLtUsC1EM1ZWVk_u3QSqrMuxaHe7O1TN6ulcrpywz8XSHCMfBLJvKf6G7iuJFbN9Ldwn3bjfaDTVoybJKF8jOO9I3VF2fJIS01L3sKP1Kk0d046nDrF4IT5b7Zx9MFjxg3w2EEDYtI3Msh_0ISm0w0f2p6w513Srma2DoZXUis-wGZTSoC0argg7W-lKDXSE3IXmRdw6kqB6f8KJ89GB8vxmothiiQlk9wGL_R2D2T26IH8jUS4nyIk_9EEiB4_T8rft_CzF_cee7yNLDDMidZ39T7ys_ylaTl7o4WAFqj_VE_JIWbqUDNnamJ8_bF-SV3mcSqj8LpjJaB_8hC4zvcdhQJnzH5DiBkungxq3HJkauvdgLZgrkCdxB5MVRVRqXeUUj5J3x4CljsRDtqElXoZggmOsI9miaUk12FGDZ6cY_uyTPPk0_SuLP-LMjcFmeYTGKtN20SJy9MUSls6rVSHaGyUWjmsd54Soghpqp-CmSIoPga5O_vtrazlpOkKLArfXlB4kQKmjGdtH4WuHXvi1hZwUOKXGFmV2J7wufxXzFfhIa223K8hrEzatLoqLHW4mRIKoz6zIMPK3-WyAyPPVyCTRXKg0r88ERrI83IveJhp-383OsczNoJtUEA7Bic01IMMS5RjqRHxHf_5Q.78kUEPEKmO-P-VkGS8_Upw/__results___files/__results___5_1.png" dir="ltr"><a href="https://www.kaggleusercontent.com/kf/300050844/eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2In0..6lO-YSzbPIUOMF-POlWz8Q._QOLtUsC1EM1ZWVk_u3QSqrMuxaHe7O1TN6ulcrpywz8XSHCMfBLJvKf6G7iuJFbN9Ldwn3bjfaDTVoybJKF8jOO9I3VF2fJIS01L3sKP1Kk0d046nDrF4IT5b7Zx9MFjxg3w2EEDYtI3Msh_0ISm0w0f2p6w513Srma2DoZXUis-wGZTSoC0argg7W-lKDXSE3IXmRdw6kqB6f8KJ89GB8vxmothiiQlk9wGL_R2D2T26IH8jUS4nyIk_9EEiB4_T8rft_CzF_cee7yNLDDMidZ39T7ys_ylaTl7o4WAFqj_VE_JIWbqUDNnamJ8_bF-SV3mcSqj8LpjJaB_8hC4zvcdhQJnzH5DiBkungxq3HJkauvdgLZgrkCdxB5MVRVRqXeUUj5J3x4CljsRDtqElXoZggmOsI9miaUk12FGDZ6cY_uyTPPk0_SuLP-LMjcFmeYTGKtN20SJy9MUSls6rVSHaGyUWjmsd54Soghpqp-CmSIoPga5O_vtrazlpOkKLArfXlB4kQKmjGdtH4WuHXvi1hZwUOKXGFmV2J7wufxXzFfhIa223K8hrEzatLoqLHW4mRIKoz6zIMPK3-WyAyPPVyCTRXKg0r88ERrI83IveJhp-383OsczNoJtUEA7Bic01IMMS5RjqRHxHf_5Q.78kUEPEKmO-P-VkGS8_Upw/__results___files/__results___5_1.png"><img style="width:597px" src="https://www.kaggleusercontent.com/kf/300050844/eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2In0..6lO-YSzbPIUOMF-POlWz8Q._QOLtUsC1EM1ZWVk_u3QSqrMuxaHe7O1TN6ulcrpywz8XSHCMfBLJvKf6G7iuJFbN9Ldwn3bjfaDTVoybJKF8jOO9I3VF2fJIS01L3sKP1Kk0d046nDrF4IT5b7Zx9MFjxg3w2EEDYtI3Msh_0ISm0w0f2p6w513Srma2DoZXUis-wGZTSoC0argg7W-lKDXSE3IXmRdw6kqB6f8KJ89GB8vxmothiiQlk9wGL_R2D2T26IH8jUS4nyIk_9EEiB4_T8rft_CzF_cee7yNLDDMidZ39T7ys_ylaTl7o4WAFqj_VE_JIWbqUDNnamJ8_bF-SV3mcSqj8LpjJaB_8hC4zvcdhQJnzH5DiBkungxq3HJkauvdgLZgrkCdxB5MVRVRqXeUUj5J3x4CljsRDtqElXoZggmOsI9miaUk12FGDZ6cY_uyTPPk0_SuLP-LMjcFmeYTGKtN20SJy9MUSls6rVSHaGyUWjmsd54Soghpqp-CmSIoPga5O_vtrazlpOkKLArfXlB4kQKmjGdtH4WuHXvi1hZwUOKXGFmV2J7wufxXzFfhIa223K8hrEzatLoqLHW4mRIKoz6zIMPK3-WyAyPPVyCTRXKg0r88ERrI83IveJhp-383OsczNoJtUEA7Bic01IMMS5RjqRHxHf_5Q.78kUEPEKmO-P-VkGS8_Upw/__results___files/__results___5_1.png"/></a></figure><pre id="3beda875-7dac-80b5-a058-e615a847eb01" class="code code-wrap"><code style="white-space:pre-wrap;word-break:break-all">sns.countplot(df[&#x27;Origin_Port&#x27;])</code></pre><pre id="3beda875-7dac-80d3-a7e4-eb4401b34eb0" class="code code-wrap"><code style="white-space:pre-wrap;word-break:break-all">&lt;Axes: xlabel=&#x27;count&#x27;, ylabel=&#x27;Origin_Port&#x27;&gt;</code></pre><figure id="3beda875-7dac-8076-9fd0-daf480b31aa8" class="image" data-notion-image="https://www.kaggleusercontent.com/kf/300050844/eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2In0..6lO-YSzbPIUOMF-POlWz8Q._QOLtUsC1EM1ZWVk_u3QSqrMuxaHe7O1TN6ulcrpywz8XSHCMfBLJvKf6G7iuJFbN9Ldwn3bjfaDTVoybJKF8jOO9I3VF2fJIS01L3sKP1Kk0d046nDrF4IT5b7Zx9MFjxg3w2EEDYtI3Msh_0ISm0w0f2p6w513Srma2DoZXUis-wGZTSoC0argg7W-lKDXSE3IXmRdw6kqB6f8KJ89GB8vxmothiiQlk9wGL_R2D2T26IH8jUS4nyIk_9EEiB4_T8rft_CzF_cee7yNLDDMidZ39T7ys_ylaTl7o4WAFqj_VE_JIWbqUDNnamJ8_bF-SV3mcSqj8LpjJaB_8hC4zvcdhQJnzH5DiBkungxq3HJkauvdgLZgrkCdxB5MVRVRqXeUUj5J3x4CljsRDtqElXoZggmOsI9miaUk12FGDZ6cY_uyTPPk0_SuLP-LMjcFmeYTGKtN20SJy9MUSls6rVSHaGyUWjmsd54Soghpqp-CmSIoPga5O_vtrazlpOkKLArfXlB4kQKmjGdtH4WuHXvi1hZwUOKXGFmV2J7wufxXzFfhIa223K8hrEzatLoqLHW4mRIKoz6zIMPK3-WyAyPPVyCTRXKg0r88ERrI83IveJhp-383OsczNoJtUEA7Bic01IMMS5RjqRHxHf_5Q.78kUEPEKmO-P-VkGS8_Upw/__results___files/__results___6_1.png" dir="ltr"><a href="https://www.kaggleusercontent.com/kf/300050844/eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2In0..6lO-YSzbPIUOMF-POlWz8Q._QOLtUsC1EM1ZWVk_u3QSqrMuxaHe7O1TN6ulcrpywz8XSHCMfBLJvKf6G7iuJFbN9Ldwn3bjfaDTVoybJKF8jOO9I3VF2fJIS01L3sKP1Kk0d046nDrF4IT5b7Zx9MFjxg3w2EEDYtI3Msh_0ISm0w0f2p6w513Srma2DoZXUis-wGZTSoC0argg7W-lKDXSE3IXmRdw6kqB6f8KJ89GB8vxmothiiQlk9wGL_R2D2T26IH8jUS4nyIk_9EEiB4_T8rft_CzF_cee7yNLDDMidZ39T7ys_ylaTl7o4WAFqj_VE_JIWbqUDNnamJ8_bF-SV3mcSqj8LpjJaB_8hC4zvcdhQJnzH5DiBkungxq3HJkauvdgLZgrkCdxB5MVRVRqXeUUj5J3x4CljsRDtqElXoZggmOsI9miaUk12FGDZ6cY_uyTPPk0_SuLP-LMjcFmeYTGKtN20SJy9MUSls6rVSHaGyUWjmsd54Soghpqp-CmSIoPga5O_vtrazlpOkKLArfXlB4kQKmjGdtH4WuHXvi1hZwUOKXGFmV2J7wufxXzFfhIa223K8hrEzatLoqLHW4mRIKoz6zIMPK3-WyAyPPVyCTRXKg0r88ERrI83IveJhp-383OsczNoJtUEA7Bic01IMMS5RjqRHxHf_5Q.78kUEPEKmO-P-VkGS8_Upw/__results___files/__results___6_1.png"><img style="width:624px" src="https://www.kaggleusercontent.com/kf/300050844/eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2In0..6lO-YSzbPIUOMF-POlWz8Q._QOLtUsC1EM1ZWVk_u3QSqrMuxaHe7O1TN6ulcrpywz8XSHCMfBLJvKf6G7iuJFbN9Ldwn3bjfaDTVoybJKF8jOO9I3VF2fJIS01L3sKP1Kk0d046nDrF4IT5b7Zx9MFjxg3w2EEDYtI3Msh_0ISm0w0f2p6w513Srma2DoZXUis-wGZTSoC0argg7W-lKDXSE3IXmRdw6kqB6f8KJ89GB8vxmothiiQlk9wGL_R2D2T26IH8jUS4nyIk_9EEiB4_T8rft_CzF_cee7yNLDDMidZ39T7ys_ylaTl7o4WAFqj_VE_JIWbqUDNnamJ8_bF-SV3mcSqj8LpjJaB_8hC4zvcdhQJnzH5DiBkungxq3HJkauvdgLZgrkCdxB5MVRVRqXeUUj5J3x4CljsRDtqElXoZggmOsI9miaUk12FGDZ6cY_uyTPPk0_SuLP-LMjcFmeYTGKtN20SJy9MUSls6rVSHaGyUWjmsd54Soghpqp-CmSIoPga5O_vtrazlpOkKLArfXlB4kQKmjGdtH4WuHXvi1hZwUOKXGFmV2J7wufxXzFfhIa223K8hrEzatLoqLHW4mRIKoz6zIMPK3-WyAyPPVyCTRXKg0r88ERrI83IveJhp-383OsczNoJtUEA7Bic01IMMS5RjqRHxHf_5Q.78kUEPEKmO-P-VkGS8_Upw/__results___files/__results___6_1.png"/></a></figure><pre id="3beda875-7dac-806f-9d8a-ce215fb887cb" class="code code-wrap"><code style="white-space:pre-wrap;word-break:break-all">sns.countplot(df[&#x27;Destination_Port&#x27;])</code></pre><pre id="3beda875-7dac-80d2-8327-e5ccfb665112" class="code code-wrap"><code style="white-space:pre-wrap;word-break:break-all">&lt;Axes: xlabel=&#x27;count&#x27;, ylabel=&#x27;Destination_Port&#x27;&gt;</code></pre><figure id="3beda875-7dac-80f6-b5f8-c00725064d6b" class="image" data-notion-image="https://www.kaggleusercontent.com/kf/300050844/eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2In0..6lO-YSzbPIUOMF-POlWz8Q._QOLtUsC1EM1ZWVk_u3QSqrMuxaHe7O1TN6ulcrpywz8XSHCMfBLJvKf6G7iuJFbN9Ldwn3bjfaDTVoybJKF8jOO9I3VF2fJIS01L3sKP1Kk0d046nDrF4IT5b7Zx9MFjxg3w2EEDYtI3Msh_0ISm0w0f2p6w513Srma2DoZXUis-wGZTSoC0argg7W-lKDXSE3IXmRdw6kqB6f8KJ89GB8vxmothiiQlk9wGL_R2D2T26IH8jUS4nyIk_9EEiB4_T8rft_CzF_cee7yNLDDMidZ39T7ys_ylaTl7o4WAFqj_VE_JIWbqUDNnamJ8_bF-SV3mcSqj8LpjJaB_8hC4zvcdhQJnzH5DiBkungxq3HJkauvdgLZgrkCdxB5MVRVRqXeUUj5J3x4CljsRDtqElXoZggmOsI9miaUk12FGDZ6cY_uyTPPk0_SuLP-LMjcFmeYTGKtN20SJy9MUSls6rVSHaGyUWjmsd54Soghpqp-CmSIoPga5O_vtrazlpOkKLArfXlB4kQKmjGdtH4WuHXvi1hZwUOKXGFmV2J7wufxXzFfhIa223K8hrEzatLoqLHW4mRIKoz6zIMPK3-WyAyPPVyCTRXKg0r88ERrI83IveJhp-383OsczNoJtUEA7Bic01IMMS5RjqRHxHf_5Q.78kUEPEKmO-P-VkGS8_Upw/__results___files/__results___7_1.png" dir="ltr"><a href="https://www.kaggleusercontent.com/kf/300050844/eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2In0..6lO-YSzbPIUOMF-POlWz8Q._QOLtUsC1EM1ZWVk_u3QSqrMuxaHe7O1TN6ulcrpywz8XSHCMfBLJvKf6G7iuJFbN9Ldwn3bjfaDTVoybJKF8jOO9I3VF2fJIS01L3sKP1Kk0d046nDrF4IT5b7Zx9MFjxg3w2EEDYtI3Msh_0ISm0w0f2p6w513Srma2DoZXUis-wGZTSoC0argg7W-lKDXSE3IXmRdw6kqB6f8KJ89GB8vxmothiiQlk9wGL_R2D2T26IH8jUS4nyIk_9EEiB4_T8rft_CzF_cee7yNLDDMidZ39T7ys_ylaTl7o4WAFqj_VE_JIWbqUDNnamJ8_bF-SV3mcSqj8LpjJaB_8hC4zvcdhQJnzH5DiBkungxq3HJkauvdgLZgrkCdxB5MVRVRqXeUUj5J3x4CljsRDtqElXoZggmOsI9miaUk12FGDZ6cY_uyTPPk0_SuLP-LMjcFmeYTGKtN20SJy9MUSls6rVSHaGyUWjmsd54Soghpqp-CmSIoPga5O_vtrazlpOkKLArfXlB4kQKmjGdtH4WuHXvi1hZwUOKXGFmV2J7wufxXzFfhIa223K8hrEzatLoqLHW4mRIKoz6zIMPK3-WyAyPPVyCTRXKg0r88ERrI83IveJhp-383OsczNoJtUEA7Bic01IMMS5RjqRHxHf_5Q.78kUEPEKmO-P-VkGS8_Upw/__results___files/__results___7_1.png"><img style="width:615px" src="https://www.kaggleusercontent.com/kf/300050844/eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2In0..6lO-YSzbPIUOMF-POlWz8Q._QOLtUsC1EM1ZWVk_u3QSqrMuxaHe7O1TN6ulcrpywz8XSHCMfBLJvKf6G7iuJFbN9Ldwn3bjfaDTVoybJKF8jOO9I3VF2fJIS01L3sKP1Kk0d046nDrF4IT5b7Zx9MFjxg3w2EEDYtI3Msh_0ISm0w0f2p6w513Srma2DoZXUis-wGZTSoC0argg7W-lKDXSE3IXmRdw6kqB6f8KJ89GB8vxmothiiQlk9wGL_R2D2T26IH8jUS4nyIk_9EEiB4_T8rft_CzF_cee7yNLDDMidZ39T7ys_ylaTl7o4WAFqj_VE_JIWbqUDNnamJ8_bF-SV3mcSqj8LpjJaB_8hC4zvcdhQJnzH5DiBkungxq3HJkauvdgLZgrkCdxB5MVRVRqXeUUj5J3x4CljsRDtqElXoZggmOsI9miaUk12FGDZ6cY_uyTPPk0_SuLP-LMjcFmeYTGKtN20SJy9MUSls6rVSHaGyUWjmsd54Soghpqp-CmSIoPga5O_vtrazlpOkKLArfXlB4kQKmjGdtH4WuHXvi1hZwUOKXGFmV2J7wufxXzFfhIa223K8hrEzatLoqLHW4mRIKoz6zIMPK3-WyAyPPVyCTRXKg0r88ERrI83IveJhp-383OsczNoJtUEA7Bic01IMMS5RjqRHxHf_5Q.78kUEPEKmO-P-VkGS8_Upw/__results___files/__results___7_1.png"/></a></figure><pre id="3beda875-7dac-8024-9fa2-d98f21e6e243" class="code code-wrap"><code style="white-space:pre-wrap;word-break:break-all">plt.hist(df[&#x27;Transport_Mode&#x27;])</code></pre><pre id="3beda875-7dac-80e3-8ae4-c2db4da57673" class="code code-wrap"><code style="white-space:pre-wrap;word-break:break-all">(array([1185.,    0.,    0., 1320.,    0.,    0., 1214.,    0.,    0.,
+        1281.]),
+ array([0. , 0.3, 0.6, 0.9, 1.2, 1.5, 1.8, 2.1, 2.4, 2.7, 3. ]),
+ &lt;BarContainer object of 10 artists&gt;)</code></pre><figure id="3beda875-7dac-808e-8725-eab356600130" class="image" data-notion-image="https://www.kaggleusercontent.com/kf/300050844/eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2In0..6lO-YSzbPIUOMF-POlWz8Q._QOLtUsC1EM1ZWVk_u3QSqrMuxaHe7O1TN6ulcrpywz8XSHCMfBLJvKf6G7iuJFbN9Ldwn3bjfaDTVoybJKF8jOO9I3VF2fJIS01L3sKP1Kk0d046nDrF4IT5b7Zx9MFjxg3w2EEDYtI3Msh_0ISm0w0f2p6w513Srma2DoZXUis-wGZTSoC0argg7W-lKDXSE3IXmRdw6kqB6f8KJ89GB8vxmothiiQlk9wGL_R2D2T26IH8jUS4nyIk_9EEiB4_T8rft_CzF_cee7yNLDDMidZ39T7ys_ylaTl7o4WAFqj_VE_JIWbqUDNnamJ8_bF-SV3mcSqj8LpjJaB_8hC4zvcdhQJnzH5DiBkungxq3HJkauvdgLZgrkCdxB5MVRVRqXeUUj5J3x4CljsRDtqElXoZggmOsI9miaUk12FGDZ6cY_uyTPPk0_SuLP-LMjcFmeYTGKtN20SJy9MUSls6rVSHaGyUWjmsd54Soghpqp-CmSIoPga5O_vtrazlpOkKLArfXlB4kQKmjGdtH4WuHXvi1hZwUOKXGFmV2J7wufxXzFfhIa223K8hrEzatLoqLHW4mRIKoz6zIMPK3-WyAyPPVyCTRXKg0r88ERrI83IveJhp-383OsczNoJtUEA7Bic01IMMS5RjqRHxHf_5Q.78kUEPEKmO-P-VkGS8_Upw/__results___files/__results___8_1.png" dir="ltr"><a href="https://www.kaggleusercontent.com/kf/300050844/eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2In0..6lO-YSzbPIUOMF-POlWz8Q._QOLtUsC1EM1ZWVk_u3QSqrMuxaHe7O1TN6ulcrpywz8XSHCMfBLJvKf6G7iuJFbN9Ldwn3bjfaDTVoybJKF8jOO9I3VF2fJIS01L3sKP1Kk0d046nDrF4IT5b7Zx9MFjxg3w2EEDYtI3Msh_0ISm0w0f2p6w513Srma2DoZXUis-wGZTSoC0argg7W-lKDXSE3IXmRdw6kqB6f8KJ89GB8vxmothiiQlk9wGL_R2D2T26IH8jUS4nyIk_9EEiB4_T8rft_CzF_cee7yNLDDMidZ39T7ys_ylaTl7o4WAFqj_VE_JIWbqUDNnamJ8_bF-SV3mcSqj8LpjJaB_8hC4zvcdhQJnzH5DiBkungxq3HJkauvdgLZgrkCdxB5MVRVRqXeUUj5J3x4CljsRDtqElXoZggmOsI9miaUk12FGDZ6cY_uyTPPk0_SuLP-LMjcFmeYTGKtN20SJy9MUSls6rVSHaGyUWjmsd54Soghpqp-CmSIoPga5O_vtrazlpOkKLArfXlB4kQKmjGdtH4WuHXvi1hZwUOKXGFmV2J7wufxXzFfhIa223K8hrEzatLoqLHW4mRIKoz6zIMPK3-WyAyPPVyCTRXKg0r88ERrI83IveJhp-383OsczNoJtUEA7Bic01IMMS5RjqRHxHf_5Q.78kUEPEKmO-P-VkGS8_Upw/__results___files/__results___8_1.png"><img style="width:544px" src="https://www.kaggleusercontent.com/kf/300050844/eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2In0..6lO-YSzbPIUOMF-POlWz8Q._QOLtUsC1EM1ZWVk_u3QSqrMuxaHe7O1TN6ulcrpywz8XSHCMfBLJvKf6G7iuJFbN9Ldwn3bjfaDTVoybJKF8jOO9I3VF2fJIS01L3sKP1Kk0d046nDrF4IT5b7Zx9MFjxg3w2EEDYtI3Msh_0ISm0w0f2p6w513Srma2DoZXUis-wGZTSoC0argg7W-lKDXSE3IXmRdw6kqB6f8KJ89GB8vxmothiiQlk9wGL_R2D2T26IH8jUS4nyIk_9EEiB4_T8rft_CzF_cee7yNLDDMidZ39T7ys_ylaTl7o4WAFqj_VE_JIWbqUDNnamJ8_bF-SV3mcSqj8LpjJaB_8hC4zvcdhQJnzH5DiBkungxq3HJkauvdgLZgrkCdxB5MVRVRqXeUUj5J3x4CljsRDtqElXoZggmOsI9miaUk12FGDZ6cY_uyTPPk0_SuLP-LMjcFmeYTGKtN20SJy9MUSls6rVSHaGyUWjmsd54Soghpqp-CmSIoPga5O_vtrazlpOkKLArfXlB4kQKmjGdtH4WuHXvi1hZwUOKXGFmV2J7wufxXzFfhIa223K8hrEzatLoqLHW4mRIKoz6zIMPK3-WyAyPPVyCTRXKg0r88ERrI83IveJhp-383OsczNoJtUEA7Bic01IMMS5RjqRHxHf_5Q.78kUEPEKmO-P-VkGS8_Upw/__results___files/__results___8_1.png"/></a></figure><pre id="3beda875-7dac-80fb-8d38-ce96f21d2a57" class="code code-wrap"><code style="white-space:pre-wrap;word-break:break-all">plt.figure(figsize=(10,6))
+sns.heatmap(df.corr(numeric_only=True), annot=True)
+plt.show()</code></pre><figure id="3beda875-7dac-8064-9a49-cf4d86d4b20e" class="image" data-notion-image="https://www.kaggleusercontent.com/kf/300050844/eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2In0..6lO-YSzbPIUOMF-POlWz8Q._QOLtUsC1EM1ZWVk_u3QSqrMuxaHe7O1TN6ulcrpywz8XSHCMfBLJvKf6G7iuJFbN9Ldwn3bjfaDTVoybJKF8jOO9I3VF2fJIS01L3sKP1Kk0d046nDrF4IT5b7Zx9MFjxg3w2EEDYtI3Msh_0ISm0w0f2p6w513Srma2DoZXUis-wGZTSoC0argg7W-lKDXSE3IXmRdw6kqB6f8KJ89GB8vxmothiiQlk9wGL_R2D2T26IH8jUS4nyIk_9EEiB4_T8rft_CzF_cee7yNLDDMidZ39T7ys_ylaTl7o4WAFqj_VE_JIWbqUDNnamJ8_bF-SV3mcSqj8LpjJaB_8hC4zvcdhQJnzH5DiBkungxq3HJkauvdgLZgrkCdxB5MVRVRqXeUUj5J3x4CljsRDtqElXoZggmOsI9miaUk12FGDZ6cY_uyTPPk0_SuLP-LMjcFmeYTGKtN20SJy9MUSls6rVSHaGyUWjmsd54Soghpqp-CmSIoPga5O_vtrazlpOkKLArfXlB4kQKmjGdtH4WuHXvi1hZwUOKXGFmV2J7wufxXzFfhIa223K8hrEzatLoqLHW4mRIKoz6zIMPK3-WyAyPPVyCTRXKg0r88ERrI83IveJhp-383OsczNoJtUEA7Bic01IMMS5RjqRHxHf_5Q.78kUEPEKmO-P-VkGS8_Upw/__results___files/__results___9_0.png" dir="ltr"><a href="https://www.kaggleusercontent.com/kf/300050844/eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2In0..6lO-YSzbPIUOMF-POlWz8Q._QOLtUsC1EM1ZWVk_u3QSqrMuxaHe7O1TN6ulcrpywz8XSHCMfBLJvKf6G7iuJFbN9Ldwn3bjfaDTVoybJKF8jOO9I3VF2fJIS01L3sKP1Kk0d046nDrF4IT5b7Zx9MFjxg3w2EEDYtI3Msh_0ISm0w0f2p6w513Srma2DoZXUis-wGZTSoC0argg7W-lKDXSE3IXmRdw6kqB6f8KJ89GB8vxmothiiQlk9wGL_R2D2T26IH8jUS4nyIk_9EEiB4_T8rft_CzF_cee7yNLDDMidZ39T7ys_ylaTl7o4WAFqj_VE_JIWbqUDNnamJ8_bF-SV3mcSqj8LpjJaB_8hC4zvcdhQJnzH5DiBkungxq3HJkauvdgLZgrkCdxB5MVRVRqXeUUj5J3x4CljsRDtqElXoZggmOsI9miaUk12FGDZ6cY_uyTPPk0_SuLP-LMjcFmeYTGKtN20SJy9MUSls6rVSHaGyUWjmsd54Soghpqp-CmSIoPga5O_vtrazlpOkKLArfXlB4kQKmjGdtH4WuHXvi1hZwUOKXGFmV2J7wufxXzFfhIa223K8hrEzatLoqLHW4mRIKoz6zIMPK3-WyAyPPVyCTRXKg0r88ERrI83IveJhp-383OsczNoJtUEA7Bic01IMMS5RjqRHxHf_5Q.78kUEPEKmO-P-VkGS8_Upw/__results___files/__results___9_0.png"><img style="width:700px" src="https://www.kaggleusercontent.com/kf/300050844/eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2In0..6lO-YSzbPIUOMF-POlWz8Q._QOLtUsC1EM1ZWVk_u3QSqrMuxaHe7O1TN6ulcrpywz8XSHCMfBLJvKf6G7iuJFbN9Ldwn3bjfaDTVoybJKF8jOO9I3VF2fJIS01L3sKP1Kk0d046nDrF4IT5b7Zx9MFjxg3w2EEDYtI3Msh_0ISm0w0f2p6w513Srma2DoZXUis-wGZTSoC0argg7W-lKDXSE3IXmRdw6kqB6f8KJ89GB8vxmothiiQlk9wGL_R2D2T26IH8jUS4nyIk_9EEiB4_T8rft_CzF_cee7yNLDDMidZ39T7ys_ylaTl7o4WAFqj_VE_JIWbqUDNnamJ8_bF-SV3mcSqj8LpjJaB_8hC4zvcdhQJnzH5DiBkungxq3HJkauvdgLZgrkCdxB5MVRVRqXeUUj5J3x4CljsRDtqElXoZggmOsI9miaUk12FGDZ6cY_uyTPPk0_SuLP-LMjcFmeYTGKtN20SJy9MUSls6rVSHaGyUWjmsd54Soghpqp-CmSIoPga5O_vtrazlpOkKLArfXlB4kQKmjGdtH4WuHXvi1hZwUOKXGFmV2J7wufxXzFfhIa223K8hrEzatLoqLHW4mRIKoz6zIMPK3-WyAyPPVyCTRXKg0r88ERrI83IveJhp-383OsczNoJtUEA7Bic01IMMS5RjqRHxHf_5Q.78kUEPEKmO-P-VkGS8_Upw/__results___files/__results___9_0.png"/></a></figure><pre id="3beda875-7dac-8078-9fc0-eeb5f026b9b7" class="code code-wrap"><code style="white-space:pre-wrap;word-break:break-all">sns.histplot(df[&#x27;Product_Category&#x27;])</code></pre><pre id="3beda875-7dac-80cd-918c-f49c6fdbf196" class="code code-wrap"><code style="white-space:pre-wrap;word-break:break-all">&lt;Axes: xlabel=&#x27;Product_Category&#x27;, ylabel=&#x27;Count&#x27;&gt;</code></pre><figure id="3beda875-7dac-8032-b0c2-c3e0f2bb75dd" class="image" data-notion-image="https://www.kaggleusercontent.com/kf/300050844/eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2In0..6lO-YSzbPIUOMF-POlWz8Q._QOLtUsC1EM1ZWVk_u3QSqrMuxaHe7O1TN6ulcrpywz8XSHCMfBLJvKf6G7iuJFbN9Ldwn3bjfaDTVoybJKF8jOO9I3VF2fJIS01L3sKP1Kk0d046nDrF4IT5b7Zx9MFjxg3w2EEDYtI3Msh_0ISm0w0f2p6w513Srma2DoZXUis-wGZTSoC0argg7W-lKDXSE3IXmRdw6kqB6f8KJ89GB8vxmothiiQlk9wGL_R2D2T26IH8jUS4nyIk_9EEiB4_T8rft_CzF_cee7yNLDDMidZ39T7ys_ylaTl7o4WAFqj_VE_JIWbqUDNnamJ8_bF-SV3mcSqj8LpjJaB_8hC4zvcdhQJnzH5DiBkungxq3HJkauvdgLZgrkCdxB5MVRVRqXeUUj5J3x4CljsRDtqElXoZggmOsI9miaUk12FGDZ6cY_uyTPPk0_SuLP-LMjcFmeYTGKtN20SJy9MUSls6rVSHaGyUWjmsd54Soghpqp-CmSIoPga5O_vtrazlpOkKLArfXlB4kQKmjGdtH4WuHXvi1hZwUOKXGFmV2J7wufxXzFfhIa223K8hrEzatLoqLHW4mRIKoz6zIMPK3-WyAyPPVyCTRXKg0r88ERrI83IveJhp-383OsczNoJtUEA7Bic01IMMS5RjqRHxHf_5Q.78kUEPEKmO-P-VkGS8_Upw/__results___files/__results___10_1.png" dir="ltr"><a href="https://www.kaggleusercontent.com/kf/300050844/eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2In0..6lO-YSzbPIUOMF-POlWz8Q._QOLtUsC1EM1ZWVk_u3QSqrMuxaHe7O1TN6ulcrpywz8XSHCMfBLJvKf6G7iuJFbN9Ldwn3bjfaDTVoybJKF8jOO9I3VF2fJIS01L3sKP1Kk0d046nDrF4IT5b7Zx9MFjxg3w2EEDYtI3Msh_0ISm0w0f2p6w513Srma2DoZXUis-wGZTSoC0argg7W-lKDXSE3IXmRdw6kqB6f8KJ89GB8vxmothiiQlk9wGL_R2D2T26IH8jUS4nyIk_9EEiB4_T8rft_CzF_cee7yNLDDMidZ39T7ys_ylaTl7o4WAFqj_VE_JIWbqUDNnamJ8_bF-SV3mcSqj8LpjJaB_8hC4zvcdhQJnzH5DiBkungxq3HJkauvdgLZgrkCdxB5MVRVRqXeUUj5J3x4CljsRDtqElXoZggmOsI9miaUk12FGDZ6cY_uyTPPk0_SuLP-LMjcFmeYTGKtN20SJy9MUSls6rVSHaGyUWjmsd54Soghpqp-CmSIoPga5O_vtrazlpOkKLArfXlB4kQKmjGdtH4WuHXvi1hZwUOKXGFmV2J7wufxXzFfhIa223K8hrEzatLoqLHW4mRIKoz6zIMPK3-WyAyPPVyCTRXKg0r88ERrI83IveJhp-383OsczNoJtUEA7Bic01IMMS5RjqRHxHf_5Q.78kUEPEKmO-P-VkGS8_Upw/__results___files/__results___10_1.png"><img style="width:564px" src="https://www.kaggleusercontent.com/kf/300050844/eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2In0..6lO-YSzbPIUOMF-POlWz8Q._QOLtUsC1EM1ZWVk_u3QSqrMuxaHe7O1TN6ulcrpywz8XSHCMfBLJvKf6G7iuJFbN9Ldwn3bjfaDTVoybJKF8jOO9I3VF2fJIS01L3sKP1Kk0d046nDrF4IT5b7Zx9MFjxg3w2EEDYtI3Msh_0ISm0w0f2p6w513Srma2DoZXUis-wGZTSoC0argg7W-lKDXSE3IXmRdw6kqB6f8KJ89GB8vxmothiiQlk9wGL_R2D2T26IH8jUS4nyIk_9EEiB4_T8rft_CzF_cee7yNLDDMidZ39T7ys_ylaTl7o4WAFqj_VE_JIWbqUDNnamJ8_bF-SV3mcSqj8LpjJaB_8hC4zvcdhQJnzH5DiBkungxq3HJkauvdgLZgrkCdxB5MVRVRqXeUUj5J3x4CljsRDtqElXoZggmOsI9miaUk12FGDZ6cY_uyTPPk0_SuLP-LMjcFmeYTGKtN20SJy9MUSls6rVSHaGyUWjmsd54Soghpqp-CmSIoPga5O_vtrazlpOkKLArfXlB4kQKmjGdtH4WuHXvi1hZwUOKXGFmV2J7wufxXzFfhIa223K8hrEzatLoqLHW4mRIKoz6zIMPK3-WyAyPPVyCTRXKg0r88ERrI83IveJhp-383OsczNoJtUEA7Bic01IMMS5RjqRHxHf_5Q.78kUEPEKmO-P-VkGS8_Upw/__results___files/__results___10_1.png"/></a></figure><pre id="3beda875-7dac-80e0-b694-ce1a45328de0" class="code code-wrap"><code style="white-space:pre-wrap;word-break:break-all">l1 = [&#x27;Fuel_Price_Index&#x27;,&#x27;Geopolitical_Risk_Score&#x27;,&#x27;Carrier_Reliability_Score&#x27;,&#x27;Lead_Time_Days&#x27;]
+
+for pt in l1:
+    stats.probplot(df[pt], dist=&quot;norm&quot;, plot=plt)
+    plt.title(pt)
+    plt.show()</code></pre><figure id="3beda875-7dac-800d-b0c9-fa36310bcc8f" class="image" data-notion-image="https://www.kaggleusercontent.com/kf/300050844/eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2In0..6lO-YSzbPIUOMF-POlWz8Q._QOLtUsC1EM1ZWVk_u3QSqrMuxaHe7O1TN6ulcrpywz8XSHCMfBLJvKf6G7iuJFbN9Ldwn3bjfaDTVoybJKF8jOO9I3VF2fJIS01L3sKP1Kk0d046nDrF4IT5b7Zx9MFjxg3w2EEDYtI3Msh_0ISm0w0f2p6w513Srma2DoZXUis-wGZTSoC0argg7W-lKDXSE3IXmRdw6kqB6f8KJ89GB8vxmothiiQlk9wGL_R2D2T26IH8jUS4nyIk_9EEiB4_T8rft_CzF_cee7yNLDDMidZ39T7ys_ylaTl7o4WAFqj_VE_JIWbqUDNnamJ8_bF-SV3mcSqj8LpjJaB_8hC4zvcdhQJnzH5DiBkungxq3HJkauvdgLZgrkCdxB5MVRVRqXeUUj5J3x4CljsRDtqElXoZggmOsI9miaUk12FGDZ6cY_uyTPPk0_SuLP-LMjcFmeYTGKtN20SJy9MUSls6rVSHaGyUWjmsd54Soghpqp-CmSIoPga5O_vtrazlpOkKLArfXlB4kQKmjGdtH4WuHXvi1hZwUOKXGFmV2J7wufxXzFfhIa223K8hrEzatLoqLHW4mRIKoz6zIMPK3-WyAyPPVyCTRXKg0r88ERrI83IveJhp-383OsczNoJtUEA7Bic01IMMS5RjqRHxHf_5Q.78kUEPEKmO-P-VkGS8_Upw/__results___files/__results___11_0.png" dir="ltr"><a href="https://www.kaggleusercontent.com/kf/300050844/eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2In0..6lO-YSzbPIUOMF-POlWz8Q._QOLtUsC1EM1ZWVk_u3QSqrMuxaHe7O1TN6ulcrpywz8XSHCMfBLJvKf6G7iuJFbN9Ldwn3bjfaDTVoybJKF8jOO9I3VF2fJIS01L3sKP1Kk0d046nDrF4IT5b7Zx9MFjxg3w2EEDYtI3Msh_0ISm0w0f2p6w513Srma2DoZXUis-wGZTSoC0argg7W-lKDXSE3IXmRdw6kqB6f8KJ89GB8vxmothiiQlk9wGL_R2D2T26IH8jUS4nyIk_9EEiB4_T8rft_CzF_cee7yNLDDMidZ39T7ys_ylaTl7o4WAFqj_VE_JIWbqUDNnamJ8_bF-SV3mcSqj8LpjJaB_8hC4zvcdhQJnzH5DiBkungxq3HJkauvdgLZgrkCdxB5MVRVRqXeUUj5J3x4CljsRDtqElXoZggmOsI9miaUk12FGDZ6cY_uyTPPk0_SuLP-LMjcFmeYTGKtN20SJy9MUSls6rVSHaGyUWjmsd54Soghpqp-CmSIoPga5O_vtrazlpOkKLArfXlB4kQKmjGdtH4WuHXvi1hZwUOKXGFmV2J7wufxXzFfhIa223K8hrEzatLoqLHW4mRIKoz6zIMPK3-WyAyPPVyCTRXKg0r88ERrI83IveJhp-383OsczNoJtUEA7Bic01IMMS5RjqRHxHf_5Q.78kUEPEKmO-P-VkGS8_Upw/__results___files/__results___11_0.png"><img style="width:538px" src="https://www.kaggleusercontent.com/kf/300050844/eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2In0..6lO-YSzbPIUOMF-POlWz8Q._QOLtUsC1EM1ZWVk_u3QSqrMuxaHe7O1TN6ulcrpywz8XSHCMfBLJvKf6G7iuJFbN9Ldwn3bjfaDTVoybJKF8jOO9I3VF2fJIS01L3sKP1Kk0d046nDrF4IT5b7Zx9MFjxg3w2EEDYtI3Msh_0ISm0w0f2p6w513Srma2DoZXUis-wGZTSoC0argg7W-lKDXSE3IXmRdw6kqB6f8KJ89GB8vxmothiiQlk9wGL_R2D2T26IH8jUS4nyIk_9EEiB4_T8rft_CzF_cee7yNLDDMidZ39T7ys_ylaTl7o4WAFqj_VE_JIWbqUDNnamJ8_bF-SV3mcSqj8LpjJaB_8hC4zvcdhQJnzH5DiBkungxq3HJkauvdgLZgrkCdxB5MVRVRqXeUUj5J3x4CljsRDtqElXoZggmOsI9miaUk12FGDZ6cY_uyTPPk0_SuLP-LMjcFmeYTGKtN20SJy9MUSls6rVSHaGyUWjmsd54Soghpqp-CmSIoPga5O_vtrazlpOkKLArfXlB4kQKmjGdtH4WuHXvi1hZwUOKXGFmV2J7wufxXzFfhIa223K8hrEzatLoqLHW4mRIKoz6zIMPK3-WyAyPPVyCTRXKg0r88ERrI83IveJhp-383OsczNoJtUEA7Bic01IMMS5RjqRHxHf_5Q.78kUEPEKmO-P-VkGS8_Upw/__results___files/__results___11_0.png"/></a></figure><figure id="3beda875-7dac-80ca-ac04-d1c76a6e5d38" class="image" data-notion-image="https://www.kaggleusercontent.com/kf/300050844/eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2In0..6lO-YSzbPIUOMF-POlWz8Q._QOLtUsC1EM1ZWVk_u3QSqrMuxaHe7O1TN6ulcrpywz8XSHCMfBLJvKf6G7iuJFbN9Ldwn3bjfaDTVoybJKF8jOO9I3VF2fJIS01L3sKP1Kk0d046nDrF4IT5b7Zx9MFjxg3w2EEDYtI3Msh_0ISm0w0f2p6w513Srma2DoZXUis-wGZTSoC0argg7W-lKDXSE3IXmRdw6kqB6f8KJ89GB8vxmothiiQlk9wGL_R2D2T26IH8jUS4nyIk_9EEiB4_T8rft_CzF_cee7yNLDDMidZ39T7ys_ylaTl7o4WAFqj_VE_JIWbqUDNnamJ8_bF-SV3mcSqj8LpjJaB_8hC4zvcdhQJnzH5DiBkungxq3HJkauvdgLZgrkCdxB5MVRVRqXeUUj5J3x4CljsRDtqElXoZggmOsI9miaUk12FGDZ6cY_uyTPPk0_SuLP-LMjcFmeYTGKtN20SJy9MUSls6rVSHaGyUWjmsd54Soghpqp-CmSIoPga5O_vtrazlpOkKLArfXlB4kQKmjGdtH4WuHXvi1hZwUOKXGFmV2J7wufxXzFfhIa223K8hrEzatLoqLHW4mRIKoz6zIMPK3-WyAyPPVyCTRXKg0r88ERrI83IveJhp-383OsczNoJtUEA7Bic01IMMS5RjqRHxHf_5Q.78kUEPEKmO-P-VkGS8_Upw/__results___files/__results___11_1.png" dir="ltr"><a href="https://www.kaggleusercontent.com/kf/300050844/eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2In0..6lO-YSzbPIUOMF-POlWz8Q._QOLtUsC1EM1ZWVk_u3QSqrMuxaHe7O1TN6ulcrpywz8XSHCMfBLJvKf6G7iuJFbN9Ldwn3bjfaDTVoybJKF8jOO9I3VF2fJIS01L3sKP1Kk0d046nDrF4IT5b7Zx9MFjxg3w2EEDYtI3Msh_0ISm0w0f2p6w513Srma2DoZXUis-wGZTSoC0argg7W-lKDXSE3IXmRdw6kqB6f8KJ89GB8vxmothiiQlk9wGL_R2D2T26IH8jUS4nyIk_9EEiB4_T8rft_CzF_cee7yNLDDMidZ39T7ys_ylaTl7o4WAFqj_VE_JIWbqUDNnamJ8_bF-SV3mcSqj8LpjJaB_8hC4zvcdhQJnzH5DiBkungxq3HJkauvdgLZgrkCdxB5MVRVRqXeUUj5J3x4CljsRDtqElXoZggmOsI9miaUk12FGDZ6cY_uyTPPk0_SuLP-LMjcFmeYTGKtN20SJy9MUSls6rVSHaGyUWjmsd54Soghpqp-CmSIoPga5O_vtrazlpOkKLArfXlB4kQKmjGdtH4WuHXvi1hZwUOKXGFmV2J7wufxXzFfhIa223K8hrEzatLoqLHW4mRIKoz6zIMPK3-WyAyPPVyCTRXKg0r88ERrI83IveJhp-383OsczNoJtUEA7Bic01IMMS5RjqRHxHf_5Q.78kUEPEKmO-P-VkGS8_Upw/__results___files/__results___11_1.png"><img style="width:549px" src="https://www.kaggleusercontent.com/kf/300050844/eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2In0..6lO-YSzbPIUOMF-POlWz8Q._QOLtUsC1EM1ZWVk_u3QSqrMuxaHe7O1TN6ulcrpywz8XSHCMfBLJvKf6G7iuJFbN9Ldwn3bjfaDTVoybJKF8jOO9I3VF2fJIS01L3sKP1Kk0d046nDrF4IT5b7Zx9MFjxg3w2EEDYtI3Msh_0ISm0w0f2p6w513Srma2DoZXUis-wGZTSoC0argg7W-lKDXSE3IXmRdw6kqB6f8KJ89GB8vxmothiiQlk9wGL_R2D2T26IH8jUS4nyIk_9EEiB4_T8rft_CzF_cee7yNLDDMidZ39T7ys_ylaTl7o4WAFqj_VE_JIWbqUDNnamJ8_bF-SV3mcSqj8LpjJaB_8hC4zvcdhQJnzH5DiBkungxq3HJkauvdgLZgrkCdxB5MVRVRqXeUUj5J3x4CljsRDtqElXoZggmOsI9miaUk12FGDZ6cY_uyTPPk0_SuLP-LMjcFmeYTGKtN20SJy9MUSls6rVSHaGyUWjmsd54Soghpqp-CmSIoPga5O_vtrazlpOkKLArfXlB4kQKmjGdtH4WuHXvi1hZwUOKXGFmV2J7wufxXzFfhIa223K8hrEzatLoqLHW4mRIKoz6zIMPK3-WyAyPPVyCTRXKg0r88ERrI83IveJhp-383OsczNoJtUEA7Bic01IMMS5RjqRHxHf_5Q.78kUEPEKmO-P-VkGS8_Upw/__results___files/__results___11_1.png"/></a></figure><figure id="3beda875-7dac-806d-add4-cb79e901ead8" class="image" data-notion-image="https://www.kaggleusercontent.com/kf/300050844/eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2In0..6lO-YSzbPIUOMF-POlWz8Q._QOLtUsC1EM1ZWVk_u3QSqrMuxaHe7O1TN6ulcrpywz8XSHCMfBLJvKf6G7iuJFbN9Ldwn3bjfaDTVoybJKF8jOO9I3VF2fJIS01L3sKP1Kk0d046nDrF4IT5b7Zx9MFjxg3w2EEDYtI3Msh_0ISm0w0f2p6w513Srma2DoZXUis-wGZTSoC0argg7W-lKDXSE3IXmRdw6kqB6f8KJ89GB8vxmothiiQlk9wGL_R2D2T26IH8jUS4nyIk_9EEiB4_T8rft_CzF_cee7yNLDDMidZ39T7ys_ylaTl7o4WAFqj_VE_JIWbqUDNnamJ8_bF-SV3mcSqj8LpjJaB_8hC4zvcdhQJnzH5DiBkungxq3HJkauvdgLZgrkCdxB5MVRVRqXeUUj5J3x4CljsRDtqElXoZggmOsI9miaUk12FGDZ6cY_uyTPPk0_SuLP-LMjcFmeYTGKtN20SJy9MUSls6rVSHaGyUWjmsd54Soghpqp-CmSIoPga5O_vtrazlpOkKLArfXlB4kQKmjGdtH4WuHXvi1hZwUOKXGFmV2J7wufxXzFfhIa223K8hrEzatLoqLHW4mRIKoz6zIMPK3-WyAyPPVyCTRXKg0r88ERrI83IveJhp-383OsczNoJtUEA7Bic01IMMS5RjqRHxHf_5Q.78kUEPEKmO-P-VkGS8_Upw/__results___files/__results___11_2.png" dir="ltr"><a href="https://www.kaggleusercontent.com/kf/300050844/eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2In0..6lO-YSzbPIUOMF-POlWz8Q._QOLtUsC1EM1ZWVk_u3QSqrMuxaHe7O1TN6ulcrpywz8XSHCMfBLJvKf6G7iuJFbN9Ldwn3bjfaDTVoybJKF8jOO9I3VF2fJIS01L3sKP1Kk0d046nDrF4IT5b7Zx9MFjxg3w2EEDYtI3Msh_0ISm0w0f2p6w513Srma2DoZXUis-wGZTSoC0argg7W-lKDXSE3IXmRdw6kqB6f8KJ89GB8vxmothiiQlk9wGL_R2D2T26IH8jUS4nyIk_9EEiB4_T8rft_CzF_cee7yNLDDMidZ39T7ys_ylaTl7o4WAFqj_VE_JIWbqUDNnamJ8_bF-SV3mcSqj8LpjJaB_8hC4zvcdhQJnzH5DiBkungxq3HJkauvdgLZgrkCdxB5MVRVRqXeUUj5J3x4CljsRDtqElXoZggmOsI9miaUk12FGDZ6cY_uyTPPk0_SuLP-LMjcFmeYTGKtN20SJy9MUSls6rVSHaGyUWjmsd54Soghpqp-CmSIoPga5O_vtrazlpOkKLArfXlB4kQKmjGdtH4WuHXvi1hZwUOKXGFmV2J7wufxXzFfhIa223K8hrEzatLoqLHW4mRIKoz6zIMPK3-WyAyPPVyCTRXKg0r88ERrI83IveJhp-383OsczNoJtUEA7Bic01IMMS5RjqRHxHf_5Q.78kUEPEKmO-P-VkGS8_Upw/__results___files/__results___11_2.png"><img style="width:551px" src="https://www.kaggleusercontent.com/kf/300050844/eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2In0..6lO-YSzbPIUOMF-POlWz8Q._QOLtUsC1EM1ZWVk_u3QSqrMuxaHe7O1TN6ulcrpywz8XSHCMfBLJvKf6G7iuJFbN9Ldwn3bjfaDTVoybJKF8jOO9I3VF2fJIS01L3sKP1Kk0d046nDrF4IT5b7Zx9MFjxg3w2EEDYtI3Msh_0ISm0w0f2p6w513Srma2DoZXUis-wGZTSoC0argg7W-lKDXSE3IXmRdw6kqB6f8KJ89GB8vxmothiiQlk9wGL_R2D2T26IH8jUS4nyIk_9EEiB4_T8rft_CzF_cee7yNLDDMidZ39T7ys_ylaTl7o4WAFqj_VE_JIWbqUDNnamJ8_bF-SV3mcSqj8LpjJaB_8hC4zvcdhQJnzH5DiBkungxq3HJkauvdgLZgrkCdxB5MVRVRqXeUUj5J3x4CljsRDtqElXoZggmOsI9miaUk12FGDZ6cY_uyTPPk0_SuLP-LMjcFmeYTGKtN20SJy9MUSls6rVSHaGyUWjmsd54Soghpqp-CmSIoPga5O_vtrazlpOkKLArfXlB4kQKmjGdtH4WuHXvi1hZwUOKXGFmV2J7wufxXzFfhIa223K8hrEzatLoqLHW4mRIKoz6zIMPK3-WyAyPPVyCTRXKg0r88ERrI83IveJhp-383OsczNoJtUEA7Bic01IMMS5RjqRHxHf_5Q.78kUEPEKmO-P-VkGS8_Upw/__results___files/__results___11_2.png"/></a></figure><figure id="3beda875-7dac-80b0-98be-ce64f338c152" class="image" data-notion-image="https://www.kaggleusercontent.com/kf/300050844/eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2In0..6lO-YSzbPIUOMF-POlWz8Q._QOLtUsC1EM1ZWVk_u3QSqrMuxaHe7O1TN6ulcrpywz8XSHCMfBLJvKf6G7iuJFbN9Ldwn3bjfaDTVoybJKF8jOO9I3VF2fJIS01L3sKP1Kk0d046nDrF4IT5b7Zx9MFjxg3w2EEDYtI3Msh_0ISm0w0f2p6w513Srma2DoZXUis-wGZTSoC0argg7W-lKDXSE3IXmRdw6kqB6f8KJ89GB8vxmothiiQlk9wGL_R2D2T26IH8jUS4nyIk_9EEiB4_T8rft_CzF_cee7yNLDDMidZ39T7ys_ylaTl7o4WAFqj_VE_JIWbqUDNnamJ8_bF-SV3mcSqj8LpjJaB_8hC4zvcdhQJnzH5DiBkungxq3HJkauvdgLZgrkCdxB5MVRVRqXeUUj5J3x4CljsRDtqElXoZggmOsI9miaUk12FGDZ6cY_uyTPPk0_SuLP-LMjcFmeYTGKtN20SJy9MUSls6rVSHaGyUWjmsd54Soghpqp-CmSIoPga5O_vtrazlpOkKLArfXlB4kQKmjGdtH4WuHXvi1hZwUOKXGFmV2J7wufxXzFfhIa223K8hrEzatLoqLHW4mRIKoz6zIMPK3-WyAyPPVyCTRXKg0r88ERrI83IveJhp-383OsczNoJtUEA7Bic01IMMS5RjqRHxHf_5Q.78kUEPEKmO-P-VkGS8_Upw/__results___files/__results___11_3.png" dir="ltr"><a href="https://www.kaggleusercontent.com/kf/300050844/eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2In0..6lO-YSzbPIUOMF-POlWz8Q._QOLtUsC1EM1ZWVk_u3QSqrMuxaHe7O1TN6ulcrpywz8XSHCMfBLJvKf6G7iuJFbN9Ldwn3bjfaDTVoybJKF8jOO9I3VF2fJIS01L3sKP1Kk0d046nDrF4IT5b7Zx9MFjxg3w2EEDYtI3Msh_0ISm0w0f2p6w513Srma2DoZXUis-wGZTSoC0argg7W-lKDXSE3IXmRdw6kqB6f8KJ89GB8vxmothiiQlk9wGL_R2D2T26IH8jUS4nyIk_9EEiB4_T8rft_CzF_cee7yNLDDMidZ39T7ys_ylaTl7o4WAFqj_VE_JIWbqUDNnamJ8_bF-SV3mcSqj8LpjJaB_8hC4zvcdhQJnzH5DiBkungxq3HJkauvdgLZgrkCdxB5MVRVRqXeUUj5J3x4CljsRDtqElXoZggmOsI9miaUk12FGDZ6cY_uyTPPk0_SuLP-LMjcFmeYTGKtN20SJy9MUSls6rVSHaGyUWjmsd54Soghpqp-CmSIoPga5O_vtrazlpOkKLArfXlB4kQKmjGdtH4WuHXvi1hZwUOKXGFmV2J7wufxXzFfhIa223K8hrEzatLoqLHW4mRIKoz6zIMPK3-WyAyPPVyCTRXKg0r88ERrI83IveJhp-383OsczNoJtUEA7Bic01IMMS5RjqRHxHf_5Q.78kUEPEKmO-P-VkGS8_Upw/__results___files/__results___11_3.png"><img style="width:558px" src="https://www.kaggleusercontent.com/kf/300050844/eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2In0..6lO-YSzbPIUOMF-POlWz8Q._QOLtUsC1EM1ZWVk_u3QSqrMuxaHe7O1TN6ulcrpywz8XSHCMfBLJvKf6G7iuJFbN9Ldwn3bjfaDTVoybJKF8jOO9I3VF2fJIS01L3sKP1Kk0d046nDrF4IT5b7Zx9MFjxg3w2EEDYtI3Msh_0ISm0w0f2p6w513Srma2DoZXUis-wGZTSoC0argg7W-lKDXSE3IXmRdw6kqB6f8KJ89GB8vxmothiiQlk9wGL_R2D2T26IH8jUS4nyIk_9EEiB4_T8rft_CzF_cee7yNLDDMidZ39T7ys_ylaTl7o4WAFqj_VE_JIWbqUDNnamJ8_bF-SV3mcSqj8LpjJaB_8hC4zvcdhQJnzH5DiBkungxq3HJkauvdgLZgrkCdxB5MVRVRqXeUUj5J3x4CljsRDtqElXoZggmOsI9miaUk12FGDZ6cY_uyTPPk0_SuLP-LMjcFmeYTGKtN20SJy9MUSls6rVSHaGyUWjmsd54Soghpqp-CmSIoPga5O_vtrazlpOkKLArfXlB4kQKmjGdtH4WuHXvi1hZwUOKXGFmV2J7wufxXzFfhIa223K8hrEzatLoqLHW4mRIKoz6zIMPK3-WyAyPPVyCTRXKg0r88ERrI83IveJhp-383OsczNoJtUEA7Bic01IMMS5RjqRHxHf_5Q.78kUEPEKmO-P-VkGS8_Upw/__results___files/__results___11_3.png"/></a></figure><h1 id="3beda875-7dac-804b-8c6a-c0819e345fd1" class="" dir="auto"><strong>Improving Data for Training</strong></h1><pre id="3beda875-7dac-808f-a24e-e8b7a14b92b4" class="code code-wrap"><code style="white-space:pre-wrap;word-break:break-all">fromsklearn.preprocessingimport PowerTransformer
+
+pt = PowerTransformer(method=&#x27;yeo-johnson&#x27;)
+df[&#x27;Lead_Time_Days&#x27;] = pt.fit_transform(df[[&#x27;Lead_Time_Days&#x27;]])
+
+stats.probplot(df[&#x27;Lead_Time_Days&#x27;], dist=&quot;norm&quot;, plot=plt)</code></pre><pre id="3beda875-7dac-80a8-83ec-c26981c9728e" class="code code-wrap"><code style="white-space:pre-wrap;word-break:break-all">((array([-3.63568806, -3.40036853, -3.27067228, ...,  3.27067228,
+          3.40036853,  3.63568806]),
+  array([-1.55923488, -1.55923488, -1.55923488, ...,  2.28900439,
+          2.28971217,  2.29139234])),
+ (np.float64(0.9828678174271834),
+  np.float64(-4.4695653624657254e-17),
+  np.float64(0.9822120803395167)))</code></pre><figure id="3beda875-7dac-800b-9ecd-c6ec7e215fa0" class="image" data-notion-image="https://www.kaggleusercontent.com/kf/300050844/eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2In0..6lO-YSzbPIUOMF-POlWz8Q._QOLtUsC1EM1ZWVk_u3QSqrMuxaHe7O1TN6ulcrpywz8XSHCMfBLJvKf6G7iuJFbN9Ldwn3bjfaDTVoybJKF8jOO9I3VF2fJIS01L3sKP1Kk0d046nDrF4IT5b7Zx9MFjxg3w2EEDYtI3Msh_0ISm0w0f2p6w513Srma2DoZXUis-wGZTSoC0argg7W-lKDXSE3IXmRdw6kqB6f8KJ89GB8vxmothiiQlk9wGL_R2D2T26IH8jUS4nyIk_9EEiB4_T8rft_CzF_cee7yNLDDMidZ39T7ys_ylaTl7o4WAFqj_VE_JIWbqUDNnamJ8_bF-SV3mcSqj8LpjJaB_8hC4zvcdhQJnzH5DiBkungxq3HJkauvdgLZgrkCdxB5MVRVRqXeUUj5J3x4CljsRDtqElXoZggmOsI9miaUk12FGDZ6cY_uyTPPk0_SuLP-LMjcFmeYTGKtN20SJy9MUSls6rVSHaGyUWjmsd54Soghpqp-CmSIoPga5O_vtrazlpOkKLArfXlB4kQKmjGdtH4WuHXvi1hZwUOKXGFmV2J7wufxXzFfhIa223K8hrEzatLoqLHW4mRIKoz6zIMPK3-WyAyPPVyCTRXKg0r88ERrI83IveJhp-383OsczNoJtUEA7Bic01IMMS5RjqRHxHf_5Q.78kUEPEKmO-P-VkGS8_Upw/__results___files/__results___13_1.png" dir="ltr"><a href="https://www.kaggleusercontent.com/kf/300050844/eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2In0..6lO-YSzbPIUOMF-POlWz8Q._QOLtUsC1EM1ZWVk_u3QSqrMuxaHe7O1TN6ulcrpywz8XSHCMfBLJvKf6G7iuJFbN9Ldwn3bjfaDTVoybJKF8jOO9I3VF2fJIS01L3sKP1Kk0d046nDrF4IT5b7Zx9MFjxg3w2EEDYtI3Msh_0ISm0w0f2p6w513Srma2DoZXUis-wGZTSoC0argg7W-lKDXSE3IXmRdw6kqB6f8KJ89GB8vxmothiiQlk9wGL_R2D2T26IH8jUS4nyIk_9EEiB4_T8rft_CzF_cee7yNLDDMidZ39T7ys_ylaTl7o4WAFqj_VE_JIWbqUDNnamJ8_bF-SV3mcSqj8LpjJaB_8hC4zvcdhQJnzH5DiBkungxq3HJkauvdgLZgrkCdxB5MVRVRqXeUUj5J3x4CljsRDtqElXoZggmOsI9miaUk12FGDZ6cY_uyTPPk0_SuLP-LMjcFmeYTGKtN20SJy9MUSls6rVSHaGyUWjmsd54Soghpqp-CmSIoPga5O_vtrazlpOkKLArfXlB4kQKmjGdtH4WuHXvi1hZwUOKXGFmV2J7wufxXzFfhIa223K8hrEzatLoqLHW4mRIKoz6zIMPK3-WyAyPPVyCTRXKg0r88ERrI83IveJhp-383OsczNoJtUEA7Bic01IMMS5RjqRHxHf_5Q.78kUEPEKmO-P-VkGS8_Upw/__results___files/__results___13_1.png"><img style="width:549px" src="https://www.kaggleusercontent.com/kf/300050844/eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2In0..6lO-YSzbPIUOMF-POlWz8Q._QOLtUsC1EM1ZWVk_u3QSqrMuxaHe7O1TN6ulcrpywz8XSHCMfBLJvKf6G7iuJFbN9Ldwn3bjfaDTVoybJKF8jOO9I3VF2fJIS01L3sKP1Kk0d046nDrF4IT5b7Zx9MFjxg3w2EEDYtI3Msh_0ISm0w0f2p6w513Srma2DoZXUis-wGZTSoC0argg7W-lKDXSE3IXmRdw6kqB6f8KJ89GB8vxmothiiQlk9wGL_R2D2T26IH8jUS4nyIk_9EEiB4_T8rft_CzF_cee7yNLDDMidZ39T7ys_ylaTl7o4WAFqj_VE_JIWbqUDNnamJ8_bF-SV3mcSqj8LpjJaB_8hC4zvcdhQJnzH5DiBkungxq3HJkauvdgLZgrkCdxB5MVRVRqXeUUj5J3x4CljsRDtqElXoZggmOsI9miaUk12FGDZ6cY_uyTPPk0_SuLP-LMjcFmeYTGKtN20SJy9MUSls6rVSHaGyUWjmsd54Soghpqp-CmSIoPga5O_vtrazlpOkKLArfXlB4kQKmjGdtH4WuHXvi1hZwUOKXGFmV2J7wufxXzFfhIa223K8hrEzatLoqLHW4mRIKoz6zIMPK3-WyAyPPVyCTRXKg0r88ERrI83IveJhp-383OsczNoJtUEA7Bic01IMMS5RjqRHxHf_5Q.78kUEPEKmO-P-VkGS8_Upw/__results___files/__results___13_1.png"/></a></figure><pre id="3beda875-7dac-806c-8a8a-f41b8227836f" class="code code-wrap"><code style="white-space:pre-wrap;word-break:break-all">fromsklearn.preprocessingimport LabelEncoder
+fromsklearn.preprocessingimport OneHotEncoder
+
+le = LabelEncoder()
+ohe = OneHotEncoder(sparse_output = False)</code></pre><pre id="3beda875-7dac-8021-b85a-fefcf9938481" class="code code-wrap"><code style="white-space:pre-wrap;word-break:break-all">df.head()</code></pre><table id="3beda875-7dac-8090-a997-f8c14f25d863" class="simple-table" dir="ltr"><thead class="simple-table-header"><tr id="3beda875-7dac-80de-a5d9-ec9bc2ff0226" dir="ltr"><th id="{~MN" class="simple-table-header-color simple-table-header"></th><th id="?|v?" class="simple-table-header-color simple-table-header">Shipment_ID</th><th id="ejf&lt;" class="simple-table-header-color simple-table-header">Date</th><th id="wfv;" class="simple-table-header-color simple-table-header">Origin_Port</th><th id="oXyH" class="simple-table-header-color simple-table-header">Destination_Port</th><th id="w[RN" class="simple-table-header-color simple-table-header">Transport_Mode</th><th id="|\XH" class="simple-table-header-color simple-table-header">Product_Category</th><th id="Om\P" class="simple-table-header-color simple-table-header">Distance_km</th><th id="pJTf" class="simple-table-header-color simple-table-header">Weight_MT</th><th id="b}Qk" class="simple-table-header-color simple-table-header">Fuel_Price_Index</th><th id="|cBC" class="simple-table-header-color simple-table-header">Geopolitical_Risk_Score</th><th id="z`^~" class="simple-table-header-color simple-table-header">Weather_Condition</th><th id="fT~Y" class="simple-table-header-color simple-table-header">Carrier_Reliability_Score</th><th id="_Lz}" class="simple-table-header-color simple-table-header">Lead_Time_Days</th><th id="H`Hl" class="simple-table-header-color simple-table-header">Disruption_Occurred</th></tr></thead><tbody><tr id="3beda875-7dac-8047-8eda-c73cda1c64d0" dir="ltr"><th id="{~MN" class="simple-table-header-color simple-table-header">0</th><td id="?|v?" class="">SC-10000</td><td id="ejf&lt;" class="">2025-10-16</td><td id="wfv;" class="">Singapore</td><td id="oXyH" class="">Los Angeles</td><td id="w[RN" class="">Rail</td><td id="|\XH" class="">Textiles</td><td id="Om\P" class="">5930.83</td><td id="pJTf" class="">197.42</td><td id="b}Qk" class="">2.43</td><td id="|cBC" class="">5.0</td><td id="z`^~" class="">Hurricane</td><td id="fT~Y" class="">0.865</td><td id="_Lz}" class="">1.202188</td><td id="H`Hl" class="">1</td></tr><tr id="3beda875-7dac-8056-85af-e635d5266e22" dir="ltr"><th id="{~MN" class="simple-table-header-color simple-table-header">1</th><td id="?|v?" class="">SC-10001</td><td id="ejf&lt;" class="">2024-04-24</td><td id="wfv;" class="">Singapore</td><td id="oXyH" class="">Shanghai</td><td id="w[RN" class="">Rail</td><td id="|\XH" class="">Automotive</td><td id="Om\P" class="">14285.36</td><td id="pJTf" class="">237.24</td><td id="b}Qk" class="">2.30</td><td id="|cBC" class="">7.5</td><td id="z`^~" class="">Storm</td><td id="fT~Y" class="">0.592</td><td id="_Lz}" class="">1.194482</td><td id="H`Hl" class="">1</td></tr><tr id="3beda875-7dac-800f-814a-c03b6d25dd84" dir="ltr"><th id="{~MN" class="simple-table-header-color simple-table-header">2</th><td id="?|v?" class="">SC-10002</td><td id="ejf&lt;" class="">2024-01-26</td><td id="wfv;" class="">Rotterdam</td><td id="oXyH" class="">Los Angeles</td><td id="w[RN" class="">Rail</td><td id="|\XH" class="">Perishables</td><td id="Om\P" class="">11113.91</td><td id="pJTf" class="">427.42</td><td id="b}Qk" class="">1.78</td><td id="|cBC" class="">5.6</td><td id="z`^~" class="">Rain</td><td id="fT~Y" class="">0.673</td><td id="_Lz}" class="">0.305092</td><td id="H`Hl" class="">0</td></tr><tr id="3beda875-7dac-803b-8af7-f82128e16774" dir="ltr"><th id="{~MN" class="simple-table-header-color simple-table-header">3</th><td id="?|v?" class="">SC-10003</td><td id="ejf&lt;" class="">2024-10-08</td><td id="wfv;" class="">Busan</td><td id="oXyH" class="">Hamburg</td><td id="w[RN" class="">Rail</td><td id="|\XH" class="">Electronics</td><td id="Om\P" class="">9180.55</td><td id="pJTf" class="">170.66</td><td id="b}Qk" class="">3.20</td><td id="|cBC" class="">0.8</td><td id="z`^~" class="">Hurricane</td><td id="fT~Y" class="">0.832</td><td id="_Lz}" class="">1.368923</td><td id="H`Hl" class="">1</td></tr><tr id="3beda875-7dac-8009-891f-cf2f44038481" dir="ltr"><th id="{~MN" class="simple-table-header-color simple-table-header">4</th><td id="?|v?" class="">SC-10004</td><td id="ejf&lt;" class="">2024-09-07</td><td id="wfv;" class="">Busan</td><td id="oXyH" class="">Singapore</td><td id="w[RN" class="">Air</td><td id="|\XH" class="">Perishables</td><td id="Om\P" class="">2762.27</td><td id="pJTf" class="">434.96</td><td id="b}Qk" class="">2.77</td><td id="|cBC" class="">1.9</td><td id="z`^~" class="">Fog</td><td id="fT~Y" class="">0.741</td><td id="_Lz}" class="">-1.559235</td><td id="H`Hl" class="">1</td></tr></tbody></table><pre id="3beda875-7dac-80bd-862f-cee781efac30" class="code code-wrap"><code style="white-space:pre-wrap;word-break:break-all">df[&#x27;Weather_Condition&#x27;] = pd.DataFrame(le.fit_transform(df[&#x27;Weather_Condition&#x27;]))</code></pre><pre id="3beda875-7dac-8050-8f64-d122085f2830" class="code code-wrap"><code style="white-space:pre-wrap;word-break:break-all">Transport_Mode_trans = pd.DataFrame(ohe.fit_transform(df[[&#x27;Origin_Port&#x27;]]),columns= ohe.get_feature_names_out([&quot;Origin_Port&quot;]))
+Destination_Port_trans = pd.DataFrame(ohe.fit_transform(df[[&#x27;Destination_Port&#x27;]]),columns= ohe.get_feature_names_out([&quot;Destination_Port&quot;]))
+Transport_Mode_trans = pd.DataFrame(ohe.fit_transform(df[[&#x27;Transport_Mode&#x27;]]),columns= ohe.get_feature_names_out([&quot;Transport_Mode&quot;]))
+Product_Category_trans = pd.DataFrame(ohe.fit_transform(df[[&#x27;Product_Category&#x27;]]),columns= ohe.get_feature_names_out([&quot;Product_Category&quot;]))</code></pre><pre id="3beda875-7dac-80ab-8eac-fa0e9d12ebbf" class="code code-wrap"><code style="white-space:pre-wrap;word-break:break-all">df =pd.concat([df,Transport_Mode_trans,Destination_Port_trans,Transport_Mode_trans,Product_Category_trans],axis= 1)</code></pre><pre id="3beda875-7dac-8089-8a78-db365b03f9c2" class="code code-wrap"><code style="white-space:pre-wrap;word-break:break-all">df.drop([&#x27;Shipment_ID&#x27;,&#x27;Origin_Port&#x27;,&#x27;Destination_Port&#x27;,&#x27;Transport_Mode&#x27;,&#x27;Product_Category&#x27;],axis = 1 ,inplace = True)</code></pre><pre id="3beda875-7dac-80d7-8f4b-ce3f4ce9ea3a" class="code code-wrap"><code style="white-space:pre-wrap;word-break:break-all">df.head()</code></pre><table id="3beda875-7dac-802d-987d-e8ccc62f6992" class="simple-table" dir="ltr"><thead class="simple-table-header"><tr id="3beda875-7dac-8024-bff9-d2ff50c35b7a" dir="ltr"><th id="[i|_" class="simple-table-header-color simple-table-header"></th><th id="m`K_" class="simple-table-header-color simple-table-header">Date</th><th id=";KTS" class="simple-table-header-color simple-table-header">Distance_km</th><th id="bpiN" class="simple-table-header-color simple-table-header">Weight_MT</th><th id="vhCb" class="simple-table-header-color simple-table-header">Fuel_Price_Index</th><th id="Yx]X" class="simple-table-header-color simple-table-header">Geopolitical_Risk_Score</th><th id="LMxq" class="simple-table-header-color simple-table-header">Weather_Condition</th><th id="ER`|" class="simple-table-header-color simple-table-header">Carrier_Reliability_Score</th><th id="dMOn" class="simple-table-header-color simple-table-header">Lead_Time_Days</th><th id="dqFT" class="simple-table-header-color simple-table-header">Disruption_Occurred</th><th id="q[dq" class="simple-table-header-color simple-table-header">Transport_Mode_Air</th><th id="J_d_" class="simple-table-header-color simple-table-header">...</th><th id="P{R&gt;" class="simple-table-header-color simple-table-header">Destination_Port_Singapore</th><th id="Q{&gt;C" class="simple-table-header-color simple-table-header">Transport_Mode_Air</th><th id="TK@e" class="simple-table-header-color simple-table-header">Transport_Mode_Rail</th><th id="WG_f" class="simple-table-header-color simple-table-header">Transport_Mode_Road</th><th id="{bF@" class="simple-table-header-color simple-table-header">Transport_Mode_Sea</th><th id="dTLg" class="simple-table-header-color simple-table-header">Product_Category_Automotive</th><th id="cU|r" class="simple-table-header-color simple-table-header">Product_Category_Electronics</th><th id="Np=r" class="simple-table-header-color simple-table-header">Product_Category_Perishables</th><th id="hQBZ" class="simple-table-header-color simple-table-header">Product_Category_Pharmaceuticals</th><th id="BW{e" class="simple-table-header-color simple-table-header">Product_Category_Textiles</th></tr></thead><tbody><tr id="3beda875-7dac-803e-ab9f-c01c1215cfa0" dir="ltr"><th id="[i|_" class="simple-table-header-color simple-table-header">0</th><td id="m`K_" class="">2025-10-16</td><td id=";KTS" class="">5930.83</td><td id="bpiN" class="">197.42</td><td id="vhCb" class="">2.43</td><td id="Yx]X" class="">5.0</td><td id="LMxq" class="">2</td><td id="ER`|" class="">0.865</td><td id="dMOn" class="">1.202188</td><td id="dqFT" class="">1</td><td id="q[dq" class="">0.0</td><td id="J_d_" class="">...</td><td id="P{R&gt;" class="">0.0</td><td id="Q{&gt;C" class="">0.0</td><td id="TK@e" class="">1.0</td><td id="WG_f" class="">0.0</td><td id="{bF@" class="">0.0</td><td id="dTLg" class="">0.0</td><td id="cU|r" class="">0.0</td><td id="Np=r" class="">0.0</td><td id="hQBZ" class="">0.0</td><td id="BW{e" class="">1.0</td></tr><tr id="3beda875-7dac-8093-ba4c-fafe637e6070" dir="ltr"><th id="[i|_" class="simple-table-header-color simple-table-header">1</th><td id="m`K_" class="">2024-04-24</td><td id=";KTS" class="">14285.36</td><td id="bpiN" class="">237.24</td><td id="vhCb" class="">2.30</td><td id="Yx]X" class="">7.5</td><td id="LMxq" class="">4</td><td id="ER`|" class="">0.592</td><td id="dMOn" class="">1.194482</td><td id="dqFT" class="">1</td><td id="q[dq" class="">0.0</td><td id="J_d_" class="">...</td><td id="P{R&gt;" class="">0.0</td><td id="Q{&gt;C" class="">0.0</td><td id="TK@e" class="">1.0</td><td id="WG_f" class="">0.0</td><td id="{bF@" class="">0.0</td><td id="dTLg" class="">1.0</td><td id="cU|r" class="">0.0</td><td id="Np=r" class="">0.0</td><td id="hQBZ" class="">0.0</td><td id="BW{e" class="">0.0</td></tr><tr id="3beda875-7dac-80ca-a134-f3e60f85f300" dir="ltr"><th id="[i|_" class="simple-table-header-color simple-table-header">2</th><td id="m`K_" class="">2024-01-26</td><td id=";KTS" class="">11113.91</td><td id="bpiN" class="">427.42</td><td id="vhCb" class="">1.78</td><td id="Yx]X" class="">5.6</td><td id="LMxq" class="">3</td><td id="ER`|" class="">0.673</td><td id="dMOn" class="">0.305092</td><td id="dqFT" class="">0</td><td id="q[dq" class="">0.0</td><td id="J_d_" class="">...</td><td id="P{R&gt;" class="">0.0</td><td id="Q{&gt;C" class="">0.0</td><td id="TK@e" class="">1.0</td><td id="WG_f" class="">0.0</td><td id="{bF@" class="">0.0</td><td id="dTLg" class="">0.0</td><td id="cU|r" class="">0.0</td><td id="Np=r" class="">1.0</td><td id="hQBZ" class="">0.0</td><td id="BW{e" class="">0.0</td></tr><tr id="3beda875-7dac-80d2-8435-e41a8a426727" dir="ltr"><th id="[i|_" class="simple-table-header-color simple-table-header">3</th><td id="m`K_" class="">2024-10-08</td><td id=";KTS" class="">9180.55</td><td id="bpiN" class="">170.66</td><td id="vhCb" class="">3.20</td><td id="Yx]X" class="">0.8</td><td id="LMxq" class="">2</td><td id="ER`|" class="">0.832</td><td id="dMOn" class="">1.368923</td><td id="dqFT" class="">1</td><td id="q[dq" class="">0.0</td><td id="J_d_" class="">...</td><td id="P{R&gt;" class="">0.0</td><td id="Q{&gt;C" class="">0.0</td><td id="TK@e" class="">1.0</td><td id="WG_f" class="">0.0</td><td id="{bF@" class="">0.0</td><td id="dTLg" class="">0.0</td><td id="cU|r" class="">1.0</td><td id="Np=r" class="">0.0</td><td id="hQBZ" class="">0.0</td><td id="BW{e" class="">0.0</td></tr><tr id="3beda875-7dac-80bb-a201-ed4773ed3d52" dir="ltr"><th id="[i|_" class="simple-table-header-color simple-table-header">4</th><td id="m`K_" class="">2024-09-07</td><td id=";KTS" class="">2762.27</td><td id="bpiN" class="">434.96</td><td id="vhCb" class="">2.77</td><td id="Yx]X" class="">1.9</td><td id="LMxq" class="">1</td><td id="ER`|" class="">0.741</td><td id="dMOn" class="">-1.559235</td><td id="dqFT" class="">1</td><td id="q[dq" class="">1.0</td><td id="J_d_" class="">...</td><td id="P{R&gt;" class="">1.0</td><td id="Q{&gt;C" class="">1.0</td><td id="TK@e" class="">0.0</td><td id="WG_f" class="">0.0</td><td id="{bF@" class="">0.0</td><td id="dTLg" class="">0.0</td><td id="cU|r" class="">0.0</td><td id="Np=r" class="">1.0</td><td id="hQBZ" class="">0.0</td><td id="BW{e" class="">0.0</td></tr></tbody></table><p id="3beda875-7dac-8069-a5da-fe8dce9d612f" class="" dir="auto">5 rows × 31 columns</p><h1 id="3beda875-7dac-8088-b4a2-eb674744d024" class="" dir="auto"><strong>Extracting &quot;Year&quot; from Date</strong></h1><pre id="3beda875-7dac-801f-b15e-fac3e7f84d51" class="code code-wrap"><code style="white-space:pre-wrap;word-break:break-all">df[&#x27;Date&#x27;] = pd.to_datetime(df[&#x27;Date&#x27;])
+df[&#x27;year&#x27;] = df[&#x27;Date&#x27;].dt.year
+df.drop([&#x27;Date&#x27;],axis = 1,inplace = True)
+df[&#x27;year&#x27;].value_counts()</code></pre><pre id="3beda875-7dac-80c5-b6bc-ca6d8ce43742" class="code code-wrap"><code style="white-space:pre-wrap;word-break:break-all">year
+2025    2545
+2024    2455
+Name: count, dtype: int64</code></pre><pre id="3beda875-7dac-800c-8fb5-c3564a1f0bd0" class="code code-wrap"><code style="white-space:pre-wrap;word-break:break-all">df.head()</code></pre><table id="3beda875-7dac-80b7-a973-d75031a2dc5e" class="simple-table" dir="ltr"><thead class="simple-table-header"><tr id="3beda875-7dac-803f-bc1c-ee6db476c6e4" dir="ltr"><th id="F`ki" class="simple-table-header-color simple-table-header"></th><th id="NS@`" class="simple-table-header-color simple-table-header">Distance_km</th><th id="dKVe" class="simple-table-header-color simple-table-header">Weight_MT</th><th id="tdas" class="simple-table-header-color simple-table-header">Fuel_Price_Index</th><th id="vOck" class="simple-table-header-color simple-table-header">Geopolitical_Risk_Score</th><th id="]At?" class="simple-table-header-color simple-table-header">Weather_Condition</th><th id="lEG?" class="simple-table-header-color simple-table-header">Carrier_Reliability_Score</th><th id=":BaH" class="simple-table-header-color simple-table-header">Lead_Time_Days</th><th id="FE@a" class="simple-table-header-color simple-table-header">Disruption_Occurred</th><th id="Hffj" class="simple-table-header-color simple-table-header">Transport_Mode_Air</th><th id="hQ[u" class="simple-table-header-color simple-table-header">Transport_Mode_Rail</th><th id="Yq|r" class="simple-table-header-color simple-table-header">...</th><th id="lFNQ" class="simple-table-header-color simple-table-header">Transport_Mode_Air</th><th id="TAF&lt;" class="simple-table-header-color simple-table-header">Transport_Mode_Rail</th><th id="PlDR" class="simple-table-header-color simple-table-header">Transport_Mode_Road</th><th id="@rBX" class="simple-table-header-color simple-table-header">Transport_Mode_Sea</th><th id=":Nm@" class="simple-table-header-color simple-table-header">Product_Category_Automotive</th><th id="&gt;zk&gt;" class="simple-table-header-color simple-table-header">Product_Category_Electronics</th><th id="FE_M" class="simple-table-header-color simple-table-header">Product_Category_Perishables</th><th id="dygl" class="simple-table-header-color simple-table-header">Product_Category_Pharmaceuticals</th><th id="N~M[" class="simple-table-header-color simple-table-header">Product_Category_Textiles</th><th id="MGM]" class="simple-table-header-color simple-table-header">year</th></tr></thead><tbody><tr id="3beda875-7dac-80f0-b732-ccc662db263f" dir="ltr"><th id="F`ki" class="simple-table-header-color simple-table-header">0</th><td id="NS@`" class="">5930.83</td><td id="dKVe" class="">197.42</td><td id="tdas" class="">2.43</td><td id="vOck" class="">5.0</td><td id="]At?" class="">2</td><td id="lEG?" class="">0.865</td><td id=":BaH" class="">1.202188</td><td id="FE@a" class="">1</td><td id="Hffj" class="">0.0</td><td id="hQ[u" class="">1.0</td><td id="Yq|r" class="">...</td><td id="lFNQ" class="">0.0</td><td id="TAF&lt;" class="">1.0</td><td id="PlDR" class="">0.0</td><td id="@rBX" class="">0.0</td><td id=":Nm@" class="">0.0</td><td id="&gt;zk&gt;" class="">0.0</td><td id="FE_M" class="">0.0</td><td id="dygl" class="">0.0</td><td id="N~M[" class="">1.0</td><td id="MGM]" class="">2025</td></tr><tr id="3beda875-7dac-80cb-9525-daa7ceecd453" dir="ltr"><th id="F`ki" class="simple-table-header-color simple-table-header">1</th><td id="NS@`" class="">14285.36</td><td id="dKVe" class="">237.24</td><td id="tdas" class="">2.30</td><td id="vOck" class="">7.5</td><td id="]At?" class="">4</td><td id="lEG?" class="">0.592</td><td id=":BaH" class="">1.194482</td><td id="FE@a" class="">1</td><td id="Hffj" class="">0.0</td><td id="hQ[u" class="">1.0</td><td id="Yq|r" class="">...</td><td id="lFNQ" class="">0.0</td><td id="TAF&lt;" class="">1.0</td><td id="PlDR" class="">0.0</td><td id="@rBX" class="">0.0</td><td id=":Nm@" class="">1.0</td><td id="&gt;zk&gt;" class="">0.0</td><td id="FE_M" class="">0.0</td><td id="dygl" class="">0.0</td><td id="N~M[" class="">0.0</td><td id="MGM]" class="">2024</td></tr><tr id="3beda875-7dac-8011-82fb-eeea9e006c85" dir="ltr"><th id="F`ki" class="simple-table-header-color simple-table-header">2</th><td id="NS@`" class="">11113.91</td><td id="dKVe" class="">427.42</td><td id="tdas" class="">1.78</td><td id="vOck" class="">5.6</td><td id="]At?" class="">3</td><td id="lEG?" class="">0.673</td><td id=":BaH" class="">0.305092</td><td id="FE@a" class="">0</td><td id="Hffj" class="">0.0</td><td id="hQ[u" class="">1.0</td><td id="Yq|r" class="">...</td><td id="lFNQ" class="">0.0</td><td id="TAF&lt;" class="">1.0</td><td id="PlDR" class="">0.0</td><td id="@rBX" class="">0.0</td><td id=":Nm@" class="">0.0</td><td id="&gt;zk&gt;" class="">0.0</td><td id="FE_M" class="">1.0</td><td id="dygl" class="">0.0</td><td id="N~M[" class="">0.0</td><td id="MGM]" class="">2024</td></tr><tr id="3beda875-7dac-8025-bf7e-e29d17b966b8" dir="ltr"><th id="F`ki" class="simple-table-header-color simple-table-header">3</th><td id="NS@`" class="">9180.55</td><td id="dKVe" class="">170.66</td><td id="tdas" class="">3.20</td><td id="vOck" class="">0.8</td><td id="]At?" class="">2</td><td id="lEG?" class="">0.832</td><td id=":BaH" class="">1.368923</td><td id="FE@a" class="">1</td><td id="Hffj" class="">0.0</td><td id="hQ[u" class="">1.0</td><td id="Yq|r" class="">...</td><td id="lFNQ" class="">0.0</td><td id="TAF&lt;" class="">1.0</td><td id="PlDR" class="">0.0</td><td id="@rBX" class="">0.0</td><td id=":Nm@" class="">0.0</td><td id="&gt;zk&gt;" class="">1.0</td><td id="FE_M" class="">0.0</td><td id="dygl" class="">0.0</td><td id="N~M[" class="">0.0</td><td id="MGM]" class="">2024</td></tr><tr id="3beda875-7dac-808a-876c-ec957f31e35a" dir="ltr"><th id="F`ki" class="simple-table-header-color simple-table-header">4</th><td id="NS@`" class="">2762.27</td><td id="dKVe" class="">434.96</td><td id="tdas" class="">2.77</td><td id="vOck" class="">1.9</td><td id="]At?" class="">1</td><td id="lEG?" class="">0.741</td><td id=":BaH" class="">-1.559235</td><td id="FE@a" class="">1</td><td id="Hffj" class="">1.0</td><td id="hQ[u" class="">0.0</td><td id="Yq|r" class="">...</td><td id="lFNQ" class="">1.0</td><td id="TAF&lt;" class="">0.0</td><td id="PlDR" class="">0.0</td><td id="@rBX" class="">0.0</td><td id=":Nm@" class="">0.0</td><td id="&gt;zk&gt;" class="">0.0</td><td id="FE_M" class="">1.0</td><td id="dygl" class="">0.0</td><td id="N~M[" class="">0.0</td><td id="MGM]" class="">2024</td></tr></tbody></table><p id="3beda875-7dac-80ed-a6ad-d756d76b8841" class="" dir="auto">5 rows × 31 columns</p><h1 id="3beda875-7dac-8012-bc00-fd75d830089b" class="" dir="auto"><strong>Splitting Inputs and Outputs</strong></h1><pre id="3beda875-7dac-8091-9e31-cfc96bc9c583" class="code code-wrap"><code style="white-space:pre-wrap;word-break:break-all">fromsklearn.model_selectionimport train_test_split
+fromsklearn.preprocessingimport StandardScaler
+
+ss = StandardScaler()
+
+X = df.drop([&#x27;Disruption_Occurred&#x27;],axis = 1)
+y = df[&#x27;Disruption_Occurred&#x27;]
+
+X_train,X_test,y_train,y_test = train_test_split(X,y,test_size = 0.2,random_state = 42)
+
+X_train = ss.fit_transform(X_train)
+X_test = ss.fit_transform(X_test)</code></pre><h1 id="3beda875-7dac-8067-9b06-efeafb39df77" class="" dir="auto"><strong>Using Neural Networks</strong></h1><pre id="3beda875-7dac-807d-aff1-f61af5de944c" class="code code-wrap"><code style="white-space:pre-wrap;word-break:break-all">importtensorflowastf
+fromtensorflowimport keras
+fromtensorflow.kerasimport layers
+
+num_classes = len(set(y))
+
+model = keras.Sequential([
+    keras.Input(shape=(X_train.shape[1],)),
+    layers.Dense(128, activation=&#x27;relu&#x27;),
+    layers.Dropout(0.3),
+    layers.Dense(64, activation=&#x27;relu&#x27;),
+    layers.Dropout(0.3),
+    layers.Dense(32, activation=&#x27;relu&#x27;),
+
+    layers.Dense(num_classes, activation=&#x27;softmax&#x27;)
+
+])</code></pre><pre id="3beda875-7dac-8012-81a7-de6f4368e96e" class="code code-wrap"><code style="white-space:pre-wrap;word-break:break-all">2026-02-25 15:47:42.981624: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+E0000 00:00:1772034463.173538      24 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1772034463.231974      24 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+W0000 00:00:1772034463.663782      24 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1772034463.663824      24 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1772034463.663826      24 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1772034463.663829      24 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+I0000 00:00:1772034486.033254      24 gpu_device.cc:2019] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 13757 MB memory:  -&gt; device: 0, name: Tesla T4, pci bus id: 0000:00:04.0, compute capability: 7.5
+I0000 00:00:1772034486.036482      24 gpu_device.cc:2019] Created device /job:localhost/replica:0/task:0/device:GPU:1 with 13757 MB memory:  -&gt; device: 1, name: Tesla T4, pci bus id: 0000:00:05.0, compute capability: 7.5</code></pre><pre id="3beda875-7dac-80eb-a8bb-fc4f2d0a79c0" class="code code-wrap"><code style="white-space:pre-wrap;word-break:break-all">model.summary()</code></pre><pre id="3beda875-7dac-80e2-81a0-e1428ff8d40e" class="code code-wrap"><code style="white-space:pre-wrap;word-break:break-all">Model: &quot;sequential&quot;</code></pre><pre id="3beda875-7dac-8094-83c3-d8056e9f17fe" class="code code-wrap"><code style="white-space:pre-wrap;word-break:break-all">┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━┓
+┃ Layer (type)┃ Output Shape┃       Param #┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━┩
+│ dense (Dense)                   │ (None, 128)            │         3,968 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ dropout (Dropout)               │ (None, 128)            │             0 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ dense_1 (Dense)                 │ (None, 64)             │         8,256 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ dropout_1 (Dropout)             │ (None, 64)             │             0 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ dense_2 (Dense)                 │ (None, 32)             │         2,080 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ dense_3 (Dense)                 │ (None, 2)              │            66 │
+└─────────────────────────────────┴────────────────────────┴───────────────┘</code></pre><pre id="3beda875-7dac-80fa-897c-c53183913e5f" class="code code-wrap"><code style="white-space:pre-wrap;word-break:break-all"> Total params:14,370 (56.13 KB)</code></pre><pre id="3beda875-7dac-8003-a7c4-e49aacd46b7b" class="code code-wrap"><code style="white-space:pre-wrap;word-break:break-all"> Trainable params:14,370 (56.13 KB)</code></pre><pre id="3beda875-7dac-809c-a218-e2b69df9e714" class="code code-wrap"><code style="white-space:pre-wrap;word-break:break-all"> Non-trainable params:0 (0.00 B)</code></pre><pre id="3beda875-7dac-8059-9a5b-e0073140761e" class="code code-wrap"><code style="white-space:pre-wrap;word-break:break-all">fromtensorflow.keras.optimizersimport Adam
+model.compile(
+    optimizer=&#x27;adam&#x27;,
+    loss=&#x27;sparse_categorical_crossentropy&#x27;,
+    metrics=[&#x27;accuracy&#x27;]
+)</code></pre><pre id="3beda875-7dac-804e-ac9e-d3d2fe8eeb6b" class="code code-wrap"><code style="white-space:pre-wrap;word-break:break-all">fromtensorflow.keras.callbacksimport EarlyStopping
+
+early_stop = EarlyStopping(
+    monitor=&#x27;val_loss&#x27;,
+    patience=5,
+    restore_best_weights=True
+)</code></pre><pre id="3beda875-7dac-8015-be6f-e638b746ebb4" class="code code-wrap"><code style="white-space:pre-wrap;word-break:break-all">history = model.fit(
+    X_train, y_train,
+    validation_split=0.2,
+    epochs=100,
+    callbacks=[early_stop],
+    batch_size=512
+)</code></pre><pre id="3beda875-7dac-8095-8820-fb774420f5b3" class="code code-wrap"><code style="white-space:pre-wrap;word-break:break-all">Epoch 1/100</code></pre><pre id="3beda875-7dac-80a8-b94f-c82a8c5ef831" class="code code-wrap"><code style="white-space:pre-wrap;word-break:break-all">WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1772034488.520738      72 service.cc:152] XLA service 0x7ae46800acd0 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+I0000 00:00:1772034488.520775      72 service.cc:160]   StreamExecutor device (0): Tesla T4, Compute Capability 7.5
+I0000 00:00:1772034488.520781      72 service.cc:160]   StreamExecutor device (1): Tesla T4, Compute Capability 7.5
+I0000 00:00:1772034488.823784      72 cuda_dnn.cc:529] Loaded cuDNN version 91002</code></pre><pre id="3beda875-7dac-8068-b0d5-d6d07a7e19a2" class="code code-wrap"><code style="white-space:pre-wrap;word-break:break-all">1/7 ━━━━━━━━━━━━━━━━━━━━ 19s 3s/step - accuracy: 0.5527 - loss: 0.7127</code></pre><pre id="3beda875-7dac-8003-b5a6-cd4de0bb1a8b" class="code code-wrap"><code style="white-space:pre-wrap;word-break:break-all">I0000 00:00:1772034490.709440      72 device_compiler.h:188] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.</code></pre><pre id="3beda875-7dac-8038-a3db-ca43a909cd36" class="code code-wrap"><code style="white-space:pre-wrap;word-break:break-all">7/7 ━━━━━━━━━━━━━━━━━━━━ 6s 422ms/step - accuracy: 0.5515 - loss: 0.7068 - val_accuracy: 0.5975 - val_loss: 0.6687
+Epoch 2/100
+7/7 ━━━━━━━━━━━━━━━━━━━━ 0s 15ms/step - accuracy: 0.6064 - loss: 0.6678 - val_accuracy: 0.6237 - val_loss: 0.6493
+Epoch 3/100
+7/7 ━━━━━━━━━━━━━━━━━━━━ 0s 14ms/step - accuracy: 0.6113 - loss: 0.6587 - val_accuracy: 0.6350 - val_loss: 0.6395
+Epoch 4/100
+7/7 ━━━━━━━━━━━━━━━━━━━━ 0s 15ms/step - accuracy: 0.6226 - loss: 0.6431 - val_accuracy: 0.6413 - val_loss: 0.6305
+Epoch 5/100
+7/7 ━━━━━━━━━━━━━━━━━━━━ 0s 15ms/step - accuracy: 0.6369 - loss: 0.6290 - val_accuracy: 0.6538 - val_loss: 0.6210
+Epoch 6/100
+7/7 ━━━━━━━━━━━━━━━━━━━━ 0s 14ms/step - accuracy: 0.6498 - loss: 0.6268 - val_accuracy: 0.6687 - val_loss: 0.6118
+Epoch 7/100
+7/7 ━━━━━━━━━━━━━━━━━━━━ 0s 14ms/step - accuracy: 0.6482 - loss: 0.6191 - val_accuracy: 0.6762 - val_loss: 0.6044
+Epoch 8/100
+7/7 ━━━━━━━━━━━━━━━━━━━━ 0s 14ms/step - accuracy: 0.6685 - loss: 0.6035 - val_accuracy: 0.6888 - val_loss: 0.5988
+Epoch 9/100
+7/7 ━━━━━━━━━━━━━━━━━━━━ 0s 14ms/step - accuracy: 0.6769 - loss: 0.5944 - val_accuracy: 0.7000 - val_loss: 0.5909
+Epoch 10/100
+7/7 ━━━━━━━━━━━━━━━━━━━━ 0s 16ms/step - accuracy: 0.6837 - loss: 0.5858 - val_accuracy: 0.6925 - val_loss: 0.5851
+Epoch 11/100
+7/7 ━━━━━━━━━━━━━━━━━━━━ 0s 15ms/step - accuracy: 0.6825 - loss: 0.5979 - val_accuracy: 0.6875 - val_loss: 0.5812
+Epoch 12/100
+7/7 ━━━━━━━━━━━━━━━━━━━━ 0s 15ms/step - accuracy: 0.6743 - loss: 0.5858 - val_accuracy: 0.6913 - val_loss: 0.5755
+Epoch 13/100
+7/7 ━━━━━━━━━━━━━━━━━━━━ 0s 15ms/step - accuracy: 0.6894 - loss: 0.5762 - val_accuracy: 0.7000 - val_loss: 0.5707
+Epoch 14/100
+7/7 ━━━━━━━━━━━━━━━━━━━━ 0s 15ms/step - accuracy: 0.6863 - loss: 0.5865 - val_accuracy: 0.6988 - val_loss: 0.5683
+Epoch 15/100
+7/7 ━━━━━━━━━━━━━━━━━━━━ 0s 15ms/step - accuracy: 0.7017 - loss: 0.5706 - val_accuracy: 0.7050 - val_loss: 0.5650
+Epoch 16/100
+7/7 ━━━━━━━━━━━━━━━━━━━━ 0s 15ms/step - accuracy: 0.6889 - loss: 0.5680 - val_accuracy: 0.7063 - val_loss: 0.5639
+Epoch 17/100
+7/7 ━━━━━━━━━━━━━━━━━━━━ 0s 15ms/step - accuracy: 0.7096 - loss: 0.5509 - val_accuracy: 0.7088 - val_loss: 0.5609
+Epoch 18/100
+7/7 ━━━━━━━━━━━━━━━━━━━━ 0s 15ms/step - accuracy: 0.7105 - loss: 0.5576 - val_accuracy: 0.7075 - val_loss: 0.5596
+Epoch 19/100
+7/7 ━━━━━━━━━━━━━━━━━━━━ 0s 15ms/step - accuracy: 0.7129 - loss: 0.5501 - val_accuracy: 0.7113 - val_loss: 0.5575
+Epoch 20/100
+7/7 ━━━━━━━━━━━━━━━━━━━━ 0s 15ms/step - accuracy: 0.7197 - loss: 0.5416 - val_accuracy: 0.7125 - val_loss: 0.5545
+Epoch 21/100
+7/7 ━━━━━━━━━━━━━━━━━━━━ 0s 15ms/step - accuracy: 0.7125 - loss: 0.5398 - val_accuracy: 0.7125 - val_loss: 0.5517
+Epoch 22/100
+7/7 ━━━━━━━━━━━━━━━━━━━━ 0s 15ms/step - accuracy: 0.7143 - loss: 0.5425 - val_accuracy: 0.7125 - val_loss: 0.5482
+Epoch 23/100
+7/7 ━━━━━━━━━━━━━━━━━━━━ 0s 15ms/step - accuracy: 0.7128 - loss: 0.5475 - val_accuracy: 0.7212 - val_loss: 0.5465
+Epoch 24/100
+7/7 ━━━━━━━━━━━━━━━━━━━━ 0s 15ms/step - accuracy: 0.7265 - loss: 0.5319 - val_accuracy: 0.7212 - val_loss: 0.5448
+Epoch 25/100
+7/7 ━━━━━━━━━━━━━━━━━━━━ 0s 15ms/step - accuracy: 0.7063 - loss: 0.5392 - val_accuracy: 0.7212 - val_loss: 0.5425
+Epoch 26/100
+7/7 ━━━━━━━━━━━━━━━━━━━━ 0s 16ms/step - accuracy: 0.7330 - loss: 0.5229 - val_accuracy: 0.7188 - val_loss: 0.5410
+Epoch 27/100
+7/7 ━━━━━━━━━━━━━━━━━━━━ 0s 15ms/step - accuracy: 0.7430 - loss: 0.5120 - val_accuracy: 0.7188 - val_loss: 0.5422
+Epoch 28/100
+7/7 ━━━━━━━━━━━━━━━━━━━━ 0s 14ms/step - accuracy: 0.7240 - loss: 0.5218 - val_accuracy: 0.7150 - val_loss: 0.5415
+Epoch 29/100
+7/7 ━━━━━━━━━━━━━━━━━━━━ 0s 14ms/step - accuracy: 0.7336 - loss: 0.5172 - val_accuracy: 0.7237 - val_loss: 0.5390
+Epoch 30/100
+7/7 ━━━━━━━━━━━━━━━━━━━━ 0s 15ms/step - accuracy: 0.7433 - loss: 0.5020 - val_accuracy: 0.7188 - val_loss: 0.5376
+Epoch 31/100
+7/7 ━━━━━━━━━━━━━━━━━━━━ 0s 15ms/step - accuracy: 0.7369 - loss: 0.5163 - val_accuracy: 0.7237 - val_loss: 0.5361
+Epoch 32/100
+7/7 ━━━━━━━━━━━━━━━━━━━━ 0s 15ms/step - accuracy: 0.7434 - loss: 0.5024 - val_accuracy: 0.7200 - val_loss: 0.5358
+Epoch 33/100
+7/7 ━━━━━━━━━━━━━━━━━━━━ 0s 15ms/step - accuracy: 0.7394 - loss: 0.5105 - val_accuracy: 0.7175 - val_loss: 0.5343
+Epoch 34/100
+7/7 ━━━━━━━━━━━━━━━━━━━━ 0s 15ms/step - accuracy: 0.7324 - loss: 0.5076 - val_accuracy: 0.7088 - val_loss: 0.5307
+Epoch 35/100
+7/7 ━━━━━━━━━━━━━━━━━━━━ 0s 14ms/step - accuracy: 0.7218 - loss: 0.5083 - val_accuracy: 0.7150 - val_loss: 0.5314
+Epoch 36/100
+7/7 ━━━━━━━━━━━━━━━━━━━━ 0s 16ms/step - accuracy: 0.7465 - loss: 0.5024 - val_accuracy: 0.7163 - val_loss: 0.5310
+Epoch 37/100
+7/7 ━━━━━━━━━━━━━━━━━━━━ 0s 15ms/step - accuracy: 0.7357 - loss: 0.5025 - val_accuracy: 0.7150 - val_loss: 0.5314
+Epoch 38/100
+7/7 ━━━━━━━━━━━━━━━━━━━━ 0s 14ms/step - accuracy: 0.7468 - loss: 0.4929 - val_accuracy: 0.7188 - val_loss: 0.5317
+Epoch 39/100
+7/7 ━━━━━━━━━━━━━━━━━━━━ 0s 15ms/step - accuracy: 0.7290 - loss: 0.4984 - val_accuracy: 0.7188 - val_loss: 0.5299
+Epoch 40/100
+7/7 ━━━━━━━━━━━━━━━━━━━━ 0s 15ms/step - accuracy: 0.7280 - loss: 0.5052 - val_accuracy: 0.7163 - val_loss: 0.5291
+Epoch 41/100
+7/7 ━━━━━━━━━━━━━━━━━━━━ 0s 15ms/step - accuracy: 0.7479 - loss: 0.4829 - val_accuracy: 0.7188 - val_loss: 0.5285
+Epoch 42/100
+7/7 ━━━━━━━━━━━━━━━━━━━━ 0s 15ms/step - accuracy: 0.7392 - loss: 0.4926 - val_accuracy: 0.7212 - val_loss: 0.5269
+Epoch 43/100
+7/7 ━━━━━━━━━━━━━━━━━━━━ 0s 14ms/step - accuracy: 0.7422 - loss: 0.4878 - val_accuracy: 0.7225 - val_loss: 0.5287
+Epoch 44/100
+7/7 ━━━━━━━━━━━━━━━━━━━━ 0s 14ms/step - accuracy: 0.7330 - loss: 0.4945 - val_accuracy: 0.7188 - val_loss: 0.5293
+Epoch 45/100
+7/7 ━━━━━━━━━━━━━━━━━━━━ 0s 15ms/step - accuracy: 0.7459 - loss: 0.4854 - val_accuracy: 0.7200 - val_loss: 0.5268
+Epoch 46/100
+7/7 ━━━━━━━━━━━━━━━━━━━━ 0s 14ms/step - accuracy: 0.7418 - loss: 0.4861 - val_accuracy: 0.7225 - val_loss: 0.5273
+Epoch 47/100
+7/7 ━━━━━━━━━━━━━━━━━━━━ 0s 14ms/step - accuracy: 0.7598 - loss: 0.4796 - val_accuracy: 0.7188 - val_loss: 0.5270
+Epoch 48/100
+7/7 ━━━━━━━━━━━━━━━━━━━━ 0s 14ms/step - accuracy: 0.7467 - loss: 0.4818 - val_accuracy: 0.7237 - val_loss: 0.5274
+Epoch 49/100
+7/7 ━━━━━━━━━━━━━━━━━━━━ 0s 14ms/step - accuracy: 0.7514 - loss: 0.4886 - val_accuracy: 0.7275 - val_loss: 0.5276
+Epoch 50/100
+7/7 ━━━━━━━━━━━━━━━━━━━━ 0s 14ms/step - accuracy: 0.7352 - loss: 0.4884 - val_accuracy: 0.7237 - val_loss: 0.5289</code></pre><pre id="3beda875-7dac-80fe-b957-f8f0d2a03628" class="code code-wrap"><code style="white-space:pre-wrap;word-break:break-all">plt.figure(figsize=(10,5))
+plt.plot(history.history[&#x27;accuracy&#x27;])
+plt.plot(history.history[&#x27;val_accuracy&#x27;])
+plt.title(&quot;Model Accuracy&quot;)
+plt.legend([&#x27;Train&#x27;, &#x27;Validation&#x27;])
+plt.grid(True)
+plt.show()
+
+plt.figure(figsize=(10,5))
+plt.plot(history.history[&#x27;loss&#x27;])
+plt.plot(history.history[&#x27;val_loss&#x27;])
+plt.title(&quot;Model Loss&quot;)
+plt.legend([&#x27;Train&#x27;, &#x27;Validation&#x27;])
+plt.grid(True)
+plt.show()</code></pre><figure id="3beda875-7dac-8048-b0ad-ec05aeb50230" class="image" data-notion-image="https://www.kaggleusercontent.com/kf/300050844/eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2In0..6lO-YSzbPIUOMF-POlWz8Q._QOLtUsC1EM1ZWVk_u3QSqrMuxaHe7O1TN6ulcrpywz8XSHCMfBLJvKf6G7iuJFbN9Ldwn3bjfaDTVoybJKF8jOO9I3VF2fJIS01L3sKP1Kk0d046nDrF4IT5b7Zx9MFjxg3w2EEDYtI3Msh_0ISm0w0f2p6w513Srma2DoZXUis-wGZTSoC0argg7W-lKDXSE3IXmRdw6kqB6f8KJ89GB8vxmothiiQlk9wGL_R2D2T26IH8jUS4nyIk_9EEiB4_T8rft_CzF_cee7yNLDDMidZ39T7ys_ylaTl7o4WAFqj_VE_JIWbqUDNnamJ8_bF-SV3mcSqj8LpjJaB_8hC4zvcdhQJnzH5DiBkungxq3HJkauvdgLZgrkCdxB5MVRVRqXeUUj5J3x4CljsRDtqElXoZggmOsI9miaUk12FGDZ6cY_uyTPPk0_SuLP-LMjcFmeYTGKtN20SJy9MUSls6rVSHaGyUWjmsd54Soghpqp-CmSIoPga5O_vtrazlpOkKLArfXlB4kQKmjGdtH4WuHXvi1hZwUOKXGFmV2J7wufxXzFfhIa223K8hrEzatLoqLHW4mRIKoz6zIMPK3-WyAyPPVyCTRXKg0r88ERrI83IveJhp-383OsczNoJtUEA7Bic01IMMS5RjqRHxHf_5Q.78kUEPEKmO-P-VkGS8_Upw/__results___files/__results___32_0.png" dir="ltr"><a href="https://www.kaggleusercontent.com/kf/300050844/eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2In0..6lO-YSzbPIUOMF-POlWz8Q._QOLtUsC1EM1ZWVk_u3QSqrMuxaHe7O1TN6ulcrpywz8XSHCMfBLJvKf6G7iuJFbN9Ldwn3bjfaDTVoybJKF8jOO9I3VF2fJIS01L3sKP1Kk0d046nDrF4IT5b7Zx9MFjxg3w2EEDYtI3Msh_0ISm0w0f2p6w513Srma2DoZXUis-wGZTSoC0argg7W-lKDXSE3IXmRdw6kqB6f8KJ89GB8vxmothiiQlk9wGL_R2D2T26IH8jUS4nyIk_9EEiB4_T8rft_CzF_cee7yNLDDMidZ39T7ys_ylaTl7o4WAFqj_VE_JIWbqUDNnamJ8_bF-SV3mcSqj8LpjJaB_8hC4zvcdhQJnzH5DiBkungxq3HJkauvdgLZgrkCdxB5MVRVRqXeUUj5J3x4CljsRDtqElXoZggmOsI9miaUk12FGDZ6cY_uyTPPk0_SuLP-LMjcFmeYTGKtN20SJy9MUSls6rVSHaGyUWjmsd54Soghpqp-CmSIoPga5O_vtrazlpOkKLArfXlB4kQKmjGdtH4WuHXvi1hZwUOKXGFmV2J7wufxXzFfhIa223K8hrEzatLoqLHW4mRIKoz6zIMPK3-WyAyPPVyCTRXKg0r88ERrI83IveJhp-383OsczNoJtUEA7Bic01IMMS5RjqRHxHf_5Q.78kUEPEKmO-P-VkGS8_Upw/__results___files/__results___32_0.png"><img style="width:700px" src="https://www.kaggleusercontent.com/kf/300050844/eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2In0..6lO-YSzbPIUOMF-POlWz8Q._QOLtUsC1EM1ZWVk_u3QSqrMuxaHe7O1TN6ulcrpywz8XSHCMfBLJvKf6G7iuJFbN9Ldwn3bjfaDTVoybJKF8jOO9I3VF2fJIS01L3sKP1Kk0d046nDrF4IT5b7Zx9MFjxg3w2EEDYtI3Msh_0ISm0w0f2p6w513Srma2DoZXUis-wGZTSoC0argg7W-lKDXSE3IXmRdw6kqB6f8KJ89GB8vxmothiiQlk9wGL_R2D2T26IH8jUS4nyIk_9EEiB4_T8rft_CzF_cee7yNLDDMidZ39T7ys_ylaTl7o4WAFqj_VE_JIWbqUDNnamJ8_bF-SV3mcSqj8LpjJaB_8hC4zvcdhQJnzH5DiBkungxq3HJkauvdgLZgrkCdxB5MVRVRqXeUUj5J3x4CljsRDtqElXoZggmOsI9miaUk12FGDZ6cY_uyTPPk0_SuLP-LMjcFmeYTGKtN20SJy9MUSls6rVSHaGyUWjmsd54Soghpqp-CmSIoPga5O_vtrazlpOkKLArfXlB4kQKmjGdtH4WuHXvi1hZwUOKXGFmV2J7wufxXzFfhIa223K8hrEzatLoqLHW4mRIKoz6zIMPK3-WyAyPPVyCTRXKg0r88ERrI83IveJhp-383OsczNoJtUEA7Bic01IMMS5RjqRHxHf_5Q.78kUEPEKmO-P-VkGS8_Upw/__results___files/__results___32_0.png"/></a></figure><figure id="3beda875-7dac-80fd-900a-f2ed24deddca" class="image" data-notion-image="https://www.kaggleusercontent.com/kf/300050844/eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2In0..6lO-YSzbPIUOMF-POlWz8Q._QOLtUsC1EM1ZWVk_u3QSqrMuxaHe7O1TN6ulcrpywz8XSHCMfBLJvKf6G7iuJFbN9Ldwn3bjfaDTVoybJKF8jOO9I3VF2fJIS01L3sKP1Kk0d046nDrF4IT5b7Zx9MFjxg3w2EEDYtI3Msh_0ISm0w0f2p6w513Srma2DoZXUis-wGZTSoC0argg7W-lKDXSE3IXmRdw6kqB6f8KJ89GB8vxmothiiQlk9wGL_R2D2T26IH8jUS4nyIk_9EEiB4_T8rft_CzF_cee7yNLDDMidZ39T7ys_ylaTl7o4WAFqj_VE_JIWbqUDNnamJ8_bF-SV3mcSqj8LpjJaB_8hC4zvcdhQJnzH5DiBkungxq3HJkauvdgLZgrkCdxB5MVRVRqXeUUj5J3x4CljsRDtqElXoZggmOsI9miaUk12FGDZ6cY_uyTPPk0_SuLP-LMjcFmeYTGKtN20SJy9MUSls6rVSHaGyUWjmsd54Soghpqp-CmSIoPga5O_vtrazlpOkKLArfXlB4kQKmjGdtH4WuHXvi1hZwUOKXGFmV2J7wufxXzFfhIa223K8hrEzatLoqLHW4mRIKoz6zIMPK3-WyAyPPVyCTRXKg0r88ERrI83IveJhp-383OsczNoJtUEA7Bic01IMMS5RjqRHxHf_5Q.78kUEPEKmO-P-VkGS8_Upw/__results___files/__results___32_1.png" dir="ltr"><a href="https://www.kaggleusercontent.com/kf/300050844/eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2In0..6lO-YSzbPIUOMF-POlWz8Q._QOLtUsC1EM1ZWVk_u3QSqrMuxaHe7O1TN6ulcrpywz8XSHCMfBLJvKf6G7iuJFbN9Ldwn3bjfaDTVoybJKF8jOO9I3VF2fJIS01L3sKP1Kk0d046nDrF4IT5b7Zx9MFjxg3w2EEDYtI3Msh_0ISm0w0f2p6w513Srma2DoZXUis-wGZTSoC0argg7W-lKDXSE3IXmRdw6kqB6f8KJ89GB8vxmothiiQlk9wGL_R2D2T26IH8jUS4nyIk_9EEiB4_T8rft_CzF_cee7yNLDDMidZ39T7ys_ylaTl7o4WAFqj_VE_JIWbqUDNnamJ8_bF-SV3mcSqj8LpjJaB_8hC4zvcdhQJnzH5DiBkungxq3HJkauvdgLZgrkCdxB5MVRVRqXeUUj5J3x4CljsRDtqElXoZggmOsI9miaUk12FGDZ6cY_uyTPPk0_SuLP-LMjcFmeYTGKtN20SJy9MUSls6rVSHaGyUWjmsd54Soghpqp-CmSIoPga5O_vtrazlpOkKLArfXlB4kQKmjGdtH4WuHXvi1hZwUOKXGFmV2J7wufxXzFfhIa223K8hrEzatLoqLHW4mRIKoz6zIMPK3-WyAyPPVyCTRXKg0r88ERrI83IveJhp-383OsczNoJtUEA7Bic01IMMS5RjqRHxHf_5Q.78kUEPEKmO-P-VkGS8_Upw/__results___files/__results___32_1.png"><img style="width:700px" src="https://www.kaggleusercontent.com/kf/300050844/eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2In0..6lO-YSzbPIUOMF-POlWz8Q._QOLtUsC1EM1ZWVk_u3QSqrMuxaHe7O1TN6ulcrpywz8XSHCMfBLJvKf6G7iuJFbN9Ldwn3bjfaDTVoybJKF8jOO9I3VF2fJIS01L3sKP1Kk0d046nDrF4IT5b7Zx9MFjxg3w2EEDYtI3Msh_0ISm0w0f2p6w513Srma2DoZXUis-wGZTSoC0argg7W-lKDXSE3IXmRdw6kqB6f8KJ89GB8vxmothiiQlk9wGL_R2D2T26IH8jUS4nyIk_9EEiB4_T8rft_CzF_cee7yNLDDMidZ39T7ys_ylaTl7o4WAFqj_VE_JIWbqUDNnamJ8_bF-SV3mcSqj8LpjJaB_8hC4zvcdhQJnzH5DiBkungxq3HJkauvdgLZgrkCdxB5MVRVRqXeUUj5J3x4CljsRDtqElXoZggmOsI9miaUk12FGDZ6cY_uyTPPk0_SuLP-LMjcFmeYTGKtN20SJy9MUSls6rVSHaGyUWjmsd54Soghpqp-CmSIoPga5O_vtrazlpOkKLArfXlB4kQKmjGdtH4WuHXvi1hZwUOKXGFmV2J7wufxXzFfhIa223K8hrEzatLoqLHW4mRIKoz6zIMPK3-WyAyPPVyCTRXKg0r88ERrI83IveJhp-383OsczNoJtUEA7Bic01IMMS5RjqRHxHf_5Q.78kUEPEKmO-P-VkGS8_Upw/__results___files/__results___32_1.png"/></a></figure><pre id="3beda875-7dac-8054-acf1-d000ed5ee12f" class="code code-wrap"><code style="white-space:pre-wrap;word-break:break-all">importnumpyasnp
+fromsklearn.metricsimport classification_report, accuracy_score,f1_score,confusion_matrix
+
+test_loss, test_acc = model.evaluate(X_test, y_test)
+print(&quot;Test Accuracy:&quot;, test_acc)
+
+y_pred = np.argmax(model.predict(X_test), axis=1)
+
+
+print(classification_report(y_test, y_pred))
+print(&quot;Accuracy:&quot;, accuracy_score(y_test, y_pred))</code></pre><pre id="3beda875-7dac-80e2-96f8-da2019a8e122" class="code code-wrap"><code style="white-space:pre-wrap;word-break:break-all">32/32 ━━━━━━━━━━━━━━━━━━━━ 1s 16ms/step - accuracy: 0.7462 - loss: 0.4817
+Test Accuracy: 0.7350000143051147
+32/32 ━━━━━━━━━━━━━━━━━━━━ 0s 8ms/step
+              precision    recall  f1-score   support
+
+           0       0.64      0.70      0.67       379
+           1       0.81      0.75      0.78       621
+
+    accuracy                           0.73      1000
+   macro avg       0.72      0.73      0.72      1000
+weighted avg       0.74      0.73      0.74      1000
+
+Accuracy: 0.735</code></pre></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
